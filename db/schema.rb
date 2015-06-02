@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20150601161909) do
   create_table "routes", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
+    t.text     "location"
     t.string   "difficulty"
     t.float    "latitude"
     t.float    "longitude"

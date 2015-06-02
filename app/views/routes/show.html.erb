@@ -1,0 +1,23 @@
+<h1> Show route </h1>
+
+<p><b>Name:</b> <%= @route.name %></p>
+<p><b>Location:</b> <%= @route.location %></p>
+<p><b>Description:</b> <%= @route.description %></p>
+<p><b>Difficulty:</b> <%= @route.difficulty %></p>
+
+<p><b>Latitude:</b> <%= @route.latitude %></p>
+<p><b>Longitude:</b> <%= @route.longitude %></p>
+
+<p><b>Origin LAT:</b> <%= @route.origin_lat %></p>
+<p><b>Origin LNG:</b> <%= @route.origin_lng %></p>
+<p><b>Destination LAT:</b> <%= @route.destination_lat %></p>
+<p><b>Destination LNG:</b> <%= @route.destination_lng %></p>
+
+<hr>
+
+<% @waypoints.each do |waypoint| %>
+	<p><b>Route ID:</b> <%= waypoint.route_id %></p>
+	<p><b>Latitude:</b> <%= waypoint.latitude %></p>	
+	<p><b>Longitude:</b> <%= waypoint.longitude %></p>	
+	<hr>
+<% end %>

@@ -10,8 +10,22 @@ $(document).ready(function(){
 	var directionsService = new google.maps.DirectionsService();
 	var map;
 
+	var route_id = '<%= :id %>';
+	console.log(route_id);
+
+
+	 /*$.ajax({
+        type: 'GET',
+        dataType: 'json',
+        url: 'http://localhost:3000/routes/'+route_id.val(),
+        success: function(data) { populateSpots(data) }
+    })*/
+
+	// ------------------ GOOGLE MAP API ----------------------- //
+
 	function initialize()
 	{
+
 		// Añadimos LONGITUD y LATITUD de la posicion deseada.
 		var myCenter=new google.maps.LatLng(40.416100, -3.684284);
 

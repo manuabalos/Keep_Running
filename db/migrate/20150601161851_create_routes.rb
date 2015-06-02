@@ -4,6 +4,7 @@ class CreateRoutes < ActiveRecord::Migration
 
     	t.string :name
     	t.text :description
+      t.text :location
     	t.string :difficulty
     	t.float :latitude
     	t.float :longitude

@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   
   get '/' => 'routes#index'
 
-  resources :routes
+  resources :routes do
+  	resources :waypoints
+  end
+
 
 end

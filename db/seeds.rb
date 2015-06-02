@@ -8,7 +8,7 @@
 
 
 	Route.create( name: "Parque del Retiro", description: "Recorrido por la zona exterior del parque del Retiro.",
-				  difficulty: "Intermedia", latitude: 40.416100, longitude: -3.684284,
+				  location: "Madrid", difficulty: "Intermedia", latitude: 40.416100, longitude: -3.684284,
 				  origin_lat: 40.421429, origin_lng: -3.680189,
 				  destination_lat: 40.421429, destination_lng: -3.680189)
 

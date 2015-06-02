@@ -1,4 +1,14 @@
-<h1> Testing Google Map API </h1>
+<h1> List of routes </h1>
+	<% @routes.each do |route| %>
+		<div>
+			<%= route.name %>
+			<%= route.location %>
+			<%= route.difficulty %>
+			<%= link_to("Show", route_path(route)) %>
+		</div>
+	<% end %>
 
-<div id="googleMap" style="width:600px;height:480px;"></div>
+	<h1> Testing Google Map API </h1>
+	<div id="googleMap" style="width:600px;height:480px;"></div>
+
 
