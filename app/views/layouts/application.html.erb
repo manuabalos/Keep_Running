@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
 	<title>KeepRunning</title>
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   	<%= stylesheet_link_tag    'application', media: 'all' %>
   	<%= javascript_include_tag 'application' %>
   	<%= csrf_meta_tags %>
 </head>
 <body>
 
+	<header class= "col-md-12 container-fluid">
+		<img src="/logo.png">
+	</header>
+
 <%= yield %>
 
 
 <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBSZq47VF4aOIIJOTXqI4q916hDXW0E6eA"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </body>
 </html>

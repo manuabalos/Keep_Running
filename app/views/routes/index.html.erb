@@ -1,13 +1,33 @@
+
+
+<div class="col-md-2"></div>
+<div class="col-md-8 info-list-routes">
 <h1> List of routes </h1>
+	<div class="table-responsive">
+	<table class="table table-bordered table-hover">
+		<thead>
+      		<tr class="info">
+        		<th>Name</th>
+       			<th>Location</th>
+       			<th>Difficulty</th>
+       			<th>Options</th>
+      		</tr>
+    	</thead>
+    	<tbody>
 	<% @routes.each do |route| %>
-		<div>
-			<%= route.name %>
-			<%= route.location %>
-			<%= route.difficulty %>
-			<a href=<%= route_path(route) %> id="route-id" data-id=<%= route.id %>>Show</a>
-		</div>
+			<tr>
+				<td><%= route.name %></td>
+				<td><%= route.location %></td>
+				<td><%= route.difficulty %></td>
+				<td><a href=<%= route_path(route) %> id="route-id" data-id=<%= route.id %>>Show</a></td>
+			</tr>
 	<% end %>
+		</tbody>
+	</table>
+	</div>
+
+</div>
+<div class="col-md-2"></div>
 
 	
 
-	
