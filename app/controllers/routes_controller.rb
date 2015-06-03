@@ -10,7 +10,7 @@ class RoutesController < ApplicationController
 
 		respond_to do |format|
       		format.html # show.html.erb
-      		format.json { render json: @route }
+      		format.json { render json: {:route => @route, :waypoints => @waypoints} }
     	end
 
 	end

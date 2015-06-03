@@ -27,30 +27,39 @@
 
 
 <script type="text/javascript">
+
 $(document).ready(function(){
 	// ---------- Taking URL
 	this_url = window.location.href;
 
 	// ---------- ROUTES SPOTS ------------ //
 	var latitude, longitude, origin_lat, origin_lng, destination_lat, detination_lng;
-
+	var wp_latitude=[], wp_longitude=[];
 
 	$.ajax({
         	type: 'GET',
         	dataType: 'json',
         	url: this_url,
-        	success: function(data) { console.log(data); }
+        	success: function(data) { takingRoute(data); }
    	})
 
 	function takingRoute(data)
 	{
-		latitude = data.latitude;
-		longitude = data.longitude;
-		origin_lat = data.origin_lat;
-		origin_lng = data.origin_lng;
-		destination_lat = data.destination_lat;
-		destination_lng = data.destination_lng;
+		latitude = data.route.latitude;
+		longitude = data.route.longitude;
+		origin_lat = data.route.origin_lat;
+		origin_lng = data.route.origin_lng;
+		destination_lat = data.route.destination_lat;
+		destination_lng = data.route.destination_lng;
+
+		for(i=0;i<data.waypoints.length;i++)
+		{
+			wp_latitude.push(data.waypoints[i].latitude);
+			wp_longitude.push(data.waypoints[i].longitude);
+		}
+		initialize();
 	}
+
 
 
 
@@ -65,9 +74,10 @@ $(document).ready(function(){
 
 	function initialize()
 	{
-
+		if(latitude)
+		{
 		// Añadimos LONGITUD y LATITUD de la posicion deseada.
-		var myCenter=new google.maps.LatLng(40.416100, -3.684284);
+		var myCenter=new google.maps.LatLng(latitude, longitude);
 
 		var mapProp = {
 			center:myCenter,
@@ -96,21 +106,30 @@ $(document).ready(function(){
 
 		// Dibujar la ruta
 		calcRoute();
+		}	
 	}
 
 			
 	function calcRoute() {
-
 		var request = {
-			origin: new google.maps.LatLng(40.421429, -3.680189), // ORIGEN
-			destination: new google.maps.LatLng(40.421429, -3.680189), // DESTINO
-			waypoints:[ {location: new google.maps.LatLng(40.416015, -3.679990)},
-						{location: new google.maps.LatLng(40.410056, -3.680038)},
-						{location: new google.maps.LatLng(40.409868, -3.687838)},
-						{location: new google.maps.LatLng(40.419230, -3.688471)},
-					    {location: new google.maps.LatLng(40.421059, -3.682410)}],
+			origin: new google.maps.LatLng(origin_lat, origin_lng), // ORIGEN
+			destination: new google.maps.LatLng(destination_lat, destination_lng), // DESTINO
+
+			waypoints:[],
+
 			travelMode: google.maps.TravelMode.WALKING
 		};
+
+		/* Preparamos el array de los puntos del recorrido */
+		takingPaths=[];
+
+			for(var i=0;i<wp_latitude.length;i++)
+			{
+				takingPaths.push({location: new google.maps.LatLng(wp_latitude[i], wp_longitude[i])});
+			}
+			
+		request.waypoints = takingPaths;
+
 
 			
 		directionsService.route(request, function(response, status) {
