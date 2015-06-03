@@ -5,7 +5,7 @@
 <p><b>Description:</b> <%= @route.description %></p>
 <p><b>Difficulty:</b> <%= @route.difficulty %></p>
 
-<p><b>Latitude:</b> <%= @route.latitude %></p>
+<p><b>Latitude:</b> <span id='actual_lat'><%= @route.latitude %></span></p>
 <p><b>Longitude:</b> <%= @route.longitude %></p>
 
 <p><b>Origin LAT:</b> <%= @route.origin_lat %></p>
@@ -21,3 +21,107 @@
 	<p><b>Longitude:</b> <%= waypoint.longitude %></p>	
 	<hr>
 <% end %>
+
+<h1> Testing Google Map API </h1>
+	<div id="googleMap" style="width:600px;height:480px;"></div>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+	// ---------- Taking URL
+	this_url = window.location.href;
+
+	// ---------- ROUTES SPOTS ------------ //
+	var latitude, longitude, origin_lat, origin_lng, destination_lat, detination_lng;
+
+
+	$.ajax({
+        	type: 'GET',
+        	dataType: 'json',
+        	url: this_url,
+        	success: function(data) { console.log(data); }
+   	})
+
+	function takingRoute(data)
+	{
+		latitude = data.latitude;
+		longitude = data.longitude;
+		origin_lat = data.origin_lat;
+		origin_lng = data.origin_lng;
+		destination_lat = data.destination_lat;
+		destination_lng = data.destination_lng;
+	}
+
+
+
+	// ------------------ GOOGLE MAP API ----------------------- //
+	var rendererOptions = {
+	  draggable: true
+	};
+	var directionsDisplay = new google.maps.DirectionsRenderer(rendererOptions);;
+	var directionsService = new google.maps.DirectionsService();
+	var map;
+
+
+	function initialize()
+	{
+
+		// Añadimos LONGITUD y LATITUD de la posicion deseada.
+		var myCenter=new google.maps.LatLng(40.416100, -3.684284);
+
+		var mapProp = {
+			center:myCenter,
+			zoom:15,
+			mapTypeId:google.maps.MapTypeId.ROADMAP
+			};
+
+		var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+		directionsDisplay.setMap(map);
+
+		// Añadimos una marca en el mapa
+		var marker=new google.maps.Marker({
+			position:myCenter,
+			});
+
+		marker.setMap(map);
+
+		// Añadimos un comentario en la marca del mapa
+		var infowindow = new google.maps.InfoWindow({
+			content:"Hello World!"
+			});
+
+		google.maps.event.addListener(marker, 'click', function() {
+			infowindow.open(map,marker);
+			});
+
+		// Dibujar la ruta
+		calcRoute();
+	}
+
+			
+	function calcRoute() {
+
+		var request = {
+			origin: new google.maps.LatLng(40.421429, -3.680189), // ORIGEN
+			destination: new google.maps.LatLng(40.421429, -3.680189), // DESTINO
+			waypoints:[ {location: new google.maps.LatLng(40.416015, -3.679990)},
+						{location: new google.maps.LatLng(40.410056, -3.680038)},
+						{location: new google.maps.LatLng(40.409868, -3.687838)},
+						{location: new google.maps.LatLng(40.419230, -3.688471)},
+					    {location: new google.maps.LatLng(40.421059, -3.682410)}],
+			travelMode: google.maps.TravelMode.WALKING
+		};
+
+			
+		directionsService.route(request, function(response, status) {
+		    if (status == google.maps.DirectionsStatus.OK) {
+		      	directionsDisplay.setDirections(response);
+		    }
+		});
+	}
+
+	google.maps.event.addDomListener(window, 'load', initialize);
+});
+</script>
+
+
