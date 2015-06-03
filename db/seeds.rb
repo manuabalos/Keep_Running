@@ -17,3 +17,12 @@
 	Waypoint.create( route_id: 1, latitude: 40.409868, longitude: -3.687838)
 	Waypoint.create( route_id: 1, latitude: 40.419230, longitude: -3.688471)
 	Waypoint.create( route_id: 1, latitude: 40.421059, longitude: -3.682410)
+
+	Route.create( name: "Parque del Canal", description: "Recorrido por la zona exterior del parque del Canal.",
+				  location: "Madrid", difficulty: "Principiantes", latitude: 40.443223, longitude: -3.707657,
+				  origin_lat: 40.444143, origin_lng: -3.709544,
+				  destination_lat: 40.444143, destination_lng: -3.709544)
+
+	Waypoint.create( route_id: 2, latitude: 40.444988, longitude: -3.707009)
+	Waypoint.create( route_id: 2, latitude: 40.442142, longitude: -3.705201)
+	Waypoint.create( route_id: 2, latitude: 40.441227, longitude: -3.707658)
