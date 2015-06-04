@@ -1,7 +1,9 @@
 class RoutesController < ApplicationController
 
 	def index
-		@routes = Route.all
+		@routes = Route.all.order(difficulty: :desc)
+		@locations = Route.select(:location).uniq.map{|route| route.location}
+		@routesLocation = Route.new
 	end
 
 	def show

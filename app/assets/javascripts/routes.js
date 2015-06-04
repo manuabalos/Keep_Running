@@ -3,6 +3,12 @@
 
 $(document).ready(function(){
 	
+	jQuery(document).ready(function($) {
+	    $(".click-row-routes").click(function() {
+	        window.document.location = $(this).data("href");
+	    });
+	});
 
+	$("#route_location").addClass("form-control");
 	
 });

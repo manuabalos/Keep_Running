@@ -26,3 +26,16 @@
 	Waypoint.create( route_id: 2, latitude: 40.444988, longitude: -3.707009)
 	Waypoint.create( route_id: 2, latitude: 40.442142, longitude: -3.705201)
 	Waypoint.create( route_id: 2, latitude: 40.441227, longitude: -3.707658)
+
+	Route.create( name: "Poligono Industrial", description: "Recorrido por la zona del poligono industrial y el barrio La Paz.",
+				  location: "Linares", difficulty: "Dificil", latitude: 38.088114, longitude: -3.639998,
+				  origin_lat: 38.088114, origin_lng: -3.639998,
+				  destination_lat: 38.088114, destination_lng: -3.639998)
+
+	Waypoint.create( route_id: 3, latitude: 38.088185, longitude: -3.663198)
+	Waypoint.create( route_id: 3, latitude: 38.086173, longitude: -3.652546)
+	Waypoint.create( route_id: 3, latitude: 38.085855, longitude: -3.640502)
+	Waypoint.create( route_id: 3, latitude: 38.085855, longitude: -3.640502)
+	Waypoint.create( route_id: 3, latitude: 38.082215, longitude: -3.616808)
+	Waypoint.create( route_id: 3, latitude: 38.088202, longitude: -3.625327)
+
