@@ -1,7 +1,5 @@
 class User < ActiveRecord::Base
 
-	def has_secure_password
-
-	end
+	has_secure_password
 
 end
