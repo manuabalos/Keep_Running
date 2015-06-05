@@ -46,3 +46,6 @@ group :development, :test do
   gem 'pry-rails'
 end
 
+gem 'omniauth-facebook'
+gem 'omniauth-github'
+
