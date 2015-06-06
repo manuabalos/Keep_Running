@@ -5,9 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-	 User.create(first_name: "root", last_name: "root", email: "root@gmail.com", password_digest: "$2a$10$UB4PV9AOR8X.00oqHWo0S.jR4GoRBj4AvN99XzpsZqcgmizx8espa")
-	  User.create(first_name: "root", last_name: "root", email: "root@gmail.com", password_digest: "$2a$10$UB4PV9AOR8X.00oqHWo0S.jR4GoRBj4AvN99XzpsZqcgmizx8espa")
-	# olbapnauj360:T
+
 
 	Route.create( name: "Parque del Retiro", description: "Recorrido por la zona exterior del parque del Retiro.",
 				  location: "Madrid", difficulty: "Intermedia", latitude: 40.416100, longitude: -3.684284,

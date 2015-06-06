@@ -1,5 +1,5 @@
 class RoutesController < ApplicationController
-	before_action :require_user, only: [:index, :show]
+
 	def index
 		@routes = Route.all.order(difficulty: :desc)
 		@locations = Route.select(:location).uniq.map{|route| route.location}

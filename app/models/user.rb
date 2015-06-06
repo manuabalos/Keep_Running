@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 
-    def self.sign_in_from_omniauth(auth)
+	def self.sign_in_from_omniauth(auth)
         find_by(provider: auth['provider'], uid:auth['uid']) || create_user_from_omniauth(auth)
     end
 
@@ -11,5 +11,4 @@ class User < ActiveRecord::Base
             name: auth['info']['name']
             )
     end
-
 end
