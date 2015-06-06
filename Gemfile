@@ -48,4 +48,5 @@ end
 
 gem 'omniauth-facebook'
 gem 'omniauth-github'
+gem 'omniauth-twitter'
 
