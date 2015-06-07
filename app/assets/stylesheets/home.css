@@ -4,20 +4,24 @@
 */
 
 .log-in-box{
-	background-color: white;
+	background-color: rgba(255, 255, 255, 0.8);
 	width: 500px;
 	height: 400px;
     float: right;
     margin-top: 5%;
     margin-right: 10%;
     border-radius: 1%;
--webkit-box-shadow: 10px -11px 40px -2px rgba(0,0,0,0.75);
--moz-box-shadow: 10px -11px 40px -2px rgba(0,0,0,0.75);
-box-shadow: 10px -11px 40px -2px rgba(0,0,0,0.75);
+	-webkit-box-shadow: 10px -11px 40px -2px rgba(0,0,0,0.75);
+	-moz-box-shadow: 10px -11px 40px -2px rgba(0,0,0,0.75);
+	box-shadow: 10px -11px 40px -2px rgba(0,0,0,0.75);
 }
 
 .logo-keep-running{
 	display: block;
 	margin: auto;
 	margin-top: 2%;
+}
+
+.cite-motivation{
+	font-size: 15px;
 }
