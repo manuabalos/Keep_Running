@@ -12,17 +12,19 @@
 
 	<header class= "col-md-12 container-fluid">
 		<img src="/logo.png">
+			<div class="pull-right">
 			<% if current_user %>
             	<li>Signed in as: <%= current_user.name %> - <%= image_tag(@auth['info']['image'], width: '50', height:'50', class: 'img-circle') %></li>
             	<li><%= link_to "Sign Out", 'sign_out', method: :delete %></li>
             <% else %>
-            	<div class="pull-right">
+            	
             	<%= link_to 'auth/facebook' do %><img class="icon-logo" src="icons/icon-facebook.png"><% end %>
             	<%= link_to 'auth/twitter' do %><img class="icon-logo" src="icons/icon-twitter.png"><% end %>
             	<%= link_to 'auth/github' do %><img class="icon-logo" src="icons/icon-github.png"><% end %>
-            	</div>
+            	
             <% end %>
-
+            </div>
+            
             <% flash.each do |key, value| %>
 				<div class="alert alert-info"><%= value %></div>
 			<% end %>

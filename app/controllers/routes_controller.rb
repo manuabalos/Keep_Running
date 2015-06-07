@@ -2,19 +2,27 @@ class RoutesController < ApplicationController
 	before_action :set_auth
 
 	def index
-		@routes = Route.all.order(difficulty: :desc)
-		@locations = Route.select(:location).uniq.map{|route| route.location}
-		@routesLocation = Route.new
+		if current_user
+			@routes = Route.all.order(difficulty: :desc)
+			@locations = Route.select(:location).uniq.map{|route| route.location}
+			@routesLocation = Route.new
+		else
+			redirect_to root_path
+		end
 	end
 
 	def show
-		@route = Route.find(params[:id])
-		@waypoints = @route.waypoints
+		if current_user
+			@route = Route.find(params[:id])
+			@waypoints = @route.waypoints
 
-		respond_to do |format|
-      		format.html # show.html.erb
-      		format.json { render json: {:route => @route, :waypoints => @waypoints} }
-    	end
+			respond_to do |format|
+	      		format.html # show.html.erb
+	      		format.json { render json: {:route => @route, :waypoints => @waypoints} }
+	    	end
+    	else
+			redirect_to root_path
+		end
 	end
 
 	private
