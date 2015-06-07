@@ -2,3 +2,31 @@
   Place all the styles related to the matching controller here.
   They will automatically be included in application.css.
 */
+
+.info-list-routes{
+	background-color: white;
+	margin-top: 2%;
+	margin-bottom: 2%;
+}
+
+#route_location{
+	width: 12%;
+	float: right;
+	
+}
+
+.mapGoogle{
+	width:600px;
+	height:480px;
+	margin: auto;
+	margin-top: 1%;
+	margin-bottom: 1%;
+}
+
+.float-left{
+	float: left;
+}
+
+.float-right{
+	float: right;
+}

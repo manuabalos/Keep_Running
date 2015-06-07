@@ -1,4 +1,5 @@
 class RoutesController < ApplicationController
+	before_action :set_auth
 
 	def index
 		@routes = Route.all.order(difficulty: :desc)
@@ -14,7 +15,11 @@ class RoutesController < ApplicationController
       		format.html # show.html.erb
       		format.json { render json: {:route => @route, :waypoints => @waypoints} }
     	end
-
 	end
+
+	private
+ 	def set_auth
+    	@auth = session[:omniauth] if session[:omniauth]
+ 	end
 
 end

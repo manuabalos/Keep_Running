@@ -15,48 +15,17 @@
  */
 
 body{
-	background-image: url("/images/background.jpg");
+	background-image: url("/images/background-home.jpg");
 	background-attachment: fixed;  
 	background-size: cover;
 }
 
+
 header{
-	background-color: rgba(222, 236, 247, 1);
+	background-color: rgba(255, 255, 255, 1);
 	position: fixed;
 	padding-top: 0.5%;
 	padding-bottom: 0.5%;
-
 	width: 100%;
-}
-
-.info-list-routes{
-	background-color: white;
-	margin-top: 2%;
-	margin-bottom: 2%;
-}
-
-.select-route-dropdownbox{
-
-}
-
-#route_location{
-	width: 12%;
-	float: right;
-	
-}
-
-.mapGoogle{
-	width:600px;
-	height:480px;
-	margin: auto;
-	margin-top: 1%;
-	margin-bottom: 1%;
-}
-
-.float-left{
-	float: left;
-}
-
-.float-right{
-	float: right;
+	border-bottom: 1px black solid;
 }
