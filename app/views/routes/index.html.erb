@@ -1,8 +1,7 @@
 
 <div class="container-fluid">
 	<div clas="row">
-		<div class="col-md-2"></div>
-		<div class="col-md-8 info-list-routes">
+		<div class="col-md-12 info-list-routes">
 			<h1 class="float-left"> List of routes </h1>
 
 			<div class="select-route-dropdownbox text-right">
@@ -11,34 +10,34 @@
 					<%= f.select :location, options_for_select(@locations)%>
 				<% end %>
 			</div>
-					<div class="clearfix"></div>
+			<div class="clearfix"></div>
+			
 			<div class="table-responsive">
-			<table class="table table-bordered table-hover">
-				<thead>
-		      		<tr class="info">
-		        		<th>Name</th>
-		       			<th>Difficulty</th>
-		       			<th>Description</th>
-		       			<th>Location</th>
-		       			<!--<th>Options</th>-->
-		      		</tr>
-		    	</thead>
-		    	<tbody>
-			<% @routes.each do |route| %>
-					<tr class="click-row-routes" data-href=<%= route_path(route) %>>
-						<td><%= route.name %></td>
-						<td><%= route.difficulty %></td>
-						<td><%= route.description %></td>
-						<td><%= route.location %></td>
-						<!--<td><a href=<%= route_path(route) %> id="route-id" data-id=<%= route.id %>>Show</a></td> -->
-					</tr>
-			<% end %>
-				</tbody>
-			</table>
+				<table class="table table-bordered table-hover">
+					<thead>
+			      		<tr class="info">
+			        		<th>Name</th>
+			       			<th>Difficulty</th>
+			       			<th>Description</th>
+			       			<th>Location</th>
+			       			<!--<th>Options</th>-->
+			      		</tr>
+			    	</thead>
+			    	<tbody>
+				<% @routes.each do |route| %>
+						<tr class="click-row-routes" data-href=<%= route_path(route) %>>
+							<td><%= route.name %></td>
+							<td><%= route.difficulty %></td>
+							<td><%= route.description %></td>
+							<td><%= route.location %></td>
+							<!--<td><a href=<%= route_path(route) %> id="route-id" data-id=<%= route.id %>>Show</a></td> -->
+						</tr>
+				<% end %>
+					</tbody>
+				</table>
 			</div>
 
 		</div>
-		<div class="col-md-2"></div>
 	</div>
 		<div class="clearfix"></div>
 </div>

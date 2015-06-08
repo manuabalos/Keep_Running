@@ -10,32 +10,58 @@
 </head>
 <body>
 
-	<header class= "col-md-12 container-fluid">
-		<img src="/logo.png">
-			<div class="pull-right">
+	<header class= "container-fluid">
+		<div class="row">
+		<div class="col-md-3">
+			<img src="/logo.png">
+		</div>
+		<div class="col-md-6 menu-container">
 			<% if current_user %>
-            	<li>Signed in as: <%= current_user.name %> - <%= image_tag(@auth['info']['image'], width: '50', height:'50', class: 'img-circle') %></li>
-            	<li><%= link_to "Sign Out", 'sign_out', method: :delete %></li>
-            <% else %>
-            	
-            	<%= link_to 'auth/facebook' do %><img class="icon-logo" src="icons/icon-facebook.png"><% end %>
-            	<%= link_to 'auth/twitter' do %><img class="icon-logo" src="icons/icon-twitter.png"><% end %>
-            	<%= link_to 'auth/github' do %><img class="icon-logo" src="icons/icon-github.png"><% end %>
-            	
-            <% end %>
-            </div>
-            
-            <% flash.each do |key, value| %>
-				<div class="alert alert-info"><%= value %></div>
-			<% end %>
-
-			<% if current_user %>
-				<div class="text-center">
-					<h1>Welcome, <%= current_user.name %></h1>
-					<h4>Logged in with -> <strong><em><%= @auth['provider'].capitalize %></em></strong></h4>
+				<div class="menu-div">
+					<button type="button" class="btn btn-default btn-lg menu-btn">
+						<span class="glyphicon glyphicon-home menu-icon"></span>
+						<span class="menu-text">HOME<br>LogOut</span>
+					</button>
+				</div>
+				<div class="menu-div">
+					<button type="button" class="btn btn-default btn-lg menu-btn">
+						<span class="glyphicon glyphicon-road menu-icon"></span>
+						<span>ROUTES</span>
+					</button>
+				</div>
+				<div class="menu-div">
+					<button type="button" class="btn btn-default btn-lg menu-btn">
+						<span class="glyphicon glyphicon-list menu-icon"></span>
+						<span>LADDER</span>
+					</button>
+				</div>
+				<div class="menu-div">
+					<button type="button" class="btn btn-default btn-lg menu-btn">
+						<span class="glyphicon glyphicon-user menu-icon"></span>
+						<span>PROFILE</span>
+					</button>
+				</div>
+				<div class="menu-div">
+					<button type="button" class="btn btn-default btn-lg menu-btn">
+						<span class="glyphicon glyphicon-duplicate menu-icon"></span>
+						<span>NEWS</span>
+					</button>
 				</div>
 			<% end %>
+		</div>
+		<div class="col-md-3">
+			<% if current_user %>
+            	<%= current_user.name %> - <%= image_tag(@auth['info']['image'], width: '50', height:'50', class: 'img-circle') %>
+            	<%= link_to "Sign Out", 'sign_out', method: :delete %>
+            <% else %>
+            	<%= link_to 'auth/github' do %><img class="icon-logo" src="icons/icon-github.png"><% end %> 
+            	<%= link_to 'auth/twitter' do %><img class="icon-logo" src="icons/icon-twitter.png"><% end %> 
+            	<%= link_to 'auth/facebook' do %><img class="icon-logo" src="icons/icon-facebook.png"><% end %>
+            <% end %>
+		</div>
+		</div>
 	</header>
+
 
 <%= yield %>
 

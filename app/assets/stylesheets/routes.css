@@ -7,10 +7,18 @@
 	background-color: white;
 	margin-top: 2%;
 	margin-bottom: 2%;
+	position: absolute;
+	width: 60%;
+	margin: auto;
+	right: 18%;
+	top: 23%;
+	-webkit-box-shadow: 10px -11px 40px -2px rgba(0,0,0,0.75);
+	-moz-box-shadow: 10px -11px 40px -2px rgba(0,0,0,0.75);
+	box-shadow: 10px -11px 40px -2px rgba(0,0,0,0.75);
 }
 
 #route_location{
-	width: 12%;
+	width: 13%;
 	float: right;
 	
 }
