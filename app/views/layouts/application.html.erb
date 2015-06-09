@@ -23,12 +23,14 @@
 						<span>PROFILE</span>
 					</button>
 				</div>
-				<div class="menu-div">
-					<button type="button" class="btn btn-default btn-lg menu-btn">
-						<span class="glyphicon glyphicon-road menu-icon"></span>
-						<span>ROUTES</span>
-					</button>
-				</div>
+				<%= link_to routes_path do %>
+					<div class="menu-div">
+						<button type="button" class="btn btn-default btn-lg menu-btn">
+							<span class="glyphicon glyphicon-road menu-icon"></span>
+							<span>ROUTES</span>
+						</button>
+					</div>
+				<% end %>
 				<div class="menu-div">
 					<button type="button" class="btn btn-default btn-lg menu-btn">
 						<span class="glyphicon glyphicon-list menu-icon"></span>
@@ -42,12 +44,12 @@
 					</button>
 				</div>
 				<%= link_to 'sign_out', method: :delete do %>
-				<div class="menu-div">
-					<button type="button" class="btn btn-default btn-lg menu-btn">
-						<span class="glyphicon glyphicon-log-out menu-icon"></span>
-						<span class="menu-text">EXIT</span>
-					</button>
-				</div>
+					<div class="menu-div">
+						<button type="button" class="btn btn-default btn-lg menu-btn">
+							<span class="glyphicon glyphicon-log-out menu-icon"></span>
+							<span class="menu-text">EXIT</span>
+						</button>
+					</div>
 				<% end %>
 			<% end %>
 		</div>
@@ -58,17 +60,17 @@
 					<div class="profile-name"><%= current_user.name %></div>
 					<div class="profile-stars">LV.<%= current_user.level %>
 						<% if current_user.experience >= 0 && current_user.experience < 200 %>
-							<img src="images/stars/0.png" class="img-stars">
+							<img src="/images/stars/0.png" class="img-stars">
 						<% elsif current_user.experience >= 200 && current_user.experience < 400 %>
-							<img src="images/stars/1.png" class="img-stars">
+							<img src="/images/stars/1.png" class="img-stars">
 						<% elsif current_user.experience >= 400 && current_user.experience < 500 %>
-							<img src="images/stars/2.png" class="img-stars">
+							<img src="/images/stars/2.png" class="img-stars">
 						<% elsif current_user.experience >= 500 && current_user.experience < 700 %>
-							<img src="images/stars/3.png" class="img-stars">
+							<img src="/images/stars/3.png" class="img-stars">
 						<% elsif current_user.experience >= 700 && current_user.experience < 900 %>
-							<img src="images/stars/4.png" class="img-stars">
+							<img src="/images/stars/4.png" class="img-stars">
 						<% elsif current_user.experience >= 900 %>
-							<img src="images/stars/5.png" class="img-stars">
+							<img src="/images/stars/5.png" class="img-stars">
 						<% end %>
 					</div>
 					<div class="profile-experience">Experience: <%= current_user.experience %> / 1000</div>

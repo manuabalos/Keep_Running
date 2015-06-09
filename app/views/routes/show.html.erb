@@ -2,10 +2,13 @@
 <div class="col-md-8 map-route">
 	<div class="col-md-4">
 		<div class="menu-div">
-				<button type="button" class="btn btn-default btn-lg menu-btn-map">
-				<span class="glyphicon glyphicon-open-file menu-icon"></span>
+			<%= link_to addHistory_path do %>
+			<button type="button" class="btn btn-default btn-lg menu-btn-map">
+				<span class="glyphicon glyphicon-copy menu-icon"></span>
 				<p>ADD TO MY HISTORY</p>
 			</button>
+			<% end %>
+
 		</div>
 		<div class="clearfix"></div>
 		<div class="info-route">
