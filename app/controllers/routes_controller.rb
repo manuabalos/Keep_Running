@@ -28,21 +28,10 @@ class RoutesController < ApplicationController
 	def addHistory
 		# Sumamos la experiencia
 		@route = Route.find(params[:id])
-
-			case @route.difficulty
-				when "Principiantes"
-				    current_user.experience = current_user.experience + 10
-				when "Intermedia"
-				  	current_user.experience = current_user.experience + 50
-				when "Dificil"
-					current_user.experience = current_user.experience + 100
-			end
-
+		Route.addExperience(@route, current_user)
 			
-				
-	    
 	    current_user.save
-		redirect_to routes_path(@route)
+		redirect_to route_path(@route)
 	end
 
 	private
