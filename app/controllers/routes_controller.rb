@@ -29,8 +29,8 @@ class RoutesController < ApplicationController
 		# Sumamos la experiencia
 		@route = Route.find(params[:id])
 		Route.addExperience(@route, current_user)
+		Route.addHistory(@route, current_user)
 			
-	    current_user.save
 		redirect_to route_path(@route)
 	end
 
