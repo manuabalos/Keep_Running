@@ -22,12 +22,12 @@
 		<div class="profile-user-info">
 			<div class="row text-center">
 				<div class="col-md-6">
-					<span class="profile-user-info-textcolumn">Intermedia</span>
+					<span class="profile-user-info-textcolumn"><%= @average %></span>
 					<span class="profile-user-info-text"><p>Av.Difficulty</p></span>
 				</div>
 				<div class="col-md-6">
 					<div class="col-md-6">
-						<span class="profile-user-info-textcolumn number-routes-completed">74</span>
+						<span class="profile-user-info-textcolumn number-routes-completed"><%= @routesCompleted %></span>
 					</div>
 					<div class="col-md-6 text-routes-completed">
 						<span class="profile-user-info-text">Routes<br>completed!</span>
@@ -37,8 +37,8 @@
 			</div>
 			<hr class="hr-separate">
 			<div class="row text-center">
-				<div class="col-md-3"><b>AGE</b><br>27</div>
-				<div class="col-md-3"><b>CITY</b><br>Linares</div>
+				<div class="col-md-3"><b>AGE</b><br><%= current_user.age %></div>
+				<div class="col-md-3"><b>CITY</b><br><%= current_user.location %></div>
 				<div class="col-md-6">
 					<button type="button" class="btn btn-info btn-lg btn-edit-profile">
 						EDIT PROFILE

@@ -46,10 +46,12 @@ ActiveRecord::Schema.define(version: 20150610081407) do
     t.string   "uid"
     t.string   "name"
     t.string   "provider"
+    t.integer  "age",        default: 27
+    t.text     "location",   default: "Madrid"
     t.integer  "level",      default: 1
     t.integer  "experience", default: 0
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
   end
 
   create_table "waypoints", force: :cascade do |t|
