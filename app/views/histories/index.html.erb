@@ -1,10 +1,60 @@
 <div class="col-md-2"></div>
-<div class="col-md-8 profile-user">
-	<% @history.each do |history| %>
-		<% count= 0 %>
-		<%= history.name %> <%= history.location %>  <%= history.difficulty %> <%= @history_date[count].date %> 
-		<% count += 1 %>
-	<% end %>
+<div class="col-md-8 profile-user-div">
+	<div class="col-md-6">
+		<%= image_tag(@auth['info']['image'], class: 'img-circle profile-user-img') %>
+		<div class="profile-user-name"><samp><%= current_user.name %></samp></div>
+		<div class="profile-user-stars">LV.<%= current_user.level %>
+			<% if current_user.experience >= 0 && current_user.experience < 200 %>
+				<img src="/images/stars/0.png" class="profile-img-stars">
+			<% elsif current_user.experience >= 200 && current_user.experience < 400 %>
+				<img src="/images/stars/1.png" class="profile-img-stars">
+			<% elsif current_user.experience >= 400 && current_user.experience < 500 %>
+				<img src="/images/stars/2.png" class="profile-img-stars">
+			<% elsif current_user.experience >= 500 && current_user.experience < 700 %>
+				<img src="/images/stars/3.png" class="profile-img-stars">
+			<% elsif current_user.experience >= 700 && current_user.experience < 900 %>
+				<img src="/images/stars/4.png" class="profile-img-stars">
+			<% elsif current_user.experience >= 900 %>
+				<img src="/images/stars/5.png" class="profile-img-stars">
+			<% end %>
+		</div>
+
+		<div class="profile-user-info">
+			<div class="row text-center">
+				<div class="col-md-6">
+					<span class="profile-user-info-textcolumn">Intermedia</span>
+					<span class="profile-user-info-text"><p>Av.Difficulty</p></span>
+				</div>
+				<div class="col-md-6">
+					<div class="col-md-6">
+						<span class="profile-user-info-textcolumn number-routes-completed">74</span>
+					</div>
+					<div class="col-md-6 text-routes-completed">
+						<span class="profile-user-info-text">Routes<br>completed!</span>
+					</div>
+				</div>
+
+			</div>
+			<hr class="hr-separate">
+			<div class="row text-center">
+				<div class="col-md-3"><b>AGE:</b> 27</div>
+				<div class="col-md-3"><b>CITY:</b> Madrid</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-12">E-MAIL: manu_abalos@hotmail.com</div>
+			</div>
+
+		</div>
+	</div>
+	<div class="col-md-6">
+		<% @history.each do |history| %>
+			<% count= 0 %>
+			<%= history.name %> <%= history.location %>  <%= history.difficulty %> <%= @history_date[count].date %> 
+			<% count += 1 %>
+		<% end %>
+	</div>
+	
 
 </div>
 <div class="col-md-2"></div>

@@ -3,7 +3,7 @@
   They will automatically be included in application.css.
 */
 
-.profile-user{
+.profile-user-div{
 	background-color: rgba(255, 255, 255, 0.8);
 	padding-top: 1%;
 	margin-top: 8%;
@@ -13,4 +13,61 @@
 	-webkit-box-shadow: 10px -11px 40px -2px rgba(0,0,0,0.75);
 	-moz-box-shadow: 10px -11px 40px -2px rgba(0,0,0,0.75);
 	box-shadow: 10px -11px 40px -2px rgba(0,0,0,0.75);
+}
+
+.profile-user-img{
+	display: block;
+	margin: auto;
+	margin-top: 1%;
+}
+
+.profile-user-name{
+	margin-top: 1%;
+	text-align: center;
+	font-size: 2rem;
+	font-weight: bold;
+}
+
+.profile-user-stars{
+	text-align: center;
+	font-size: 20px;
+}
+
+.profile-img-stars{
+	height: 40px;
+	padding-bottom: 3px;
+}
+
+.profile-user-info{
+	margin-top: 3%;
+	border: 2px solid black;
+	border-radius: 10px;
+	padding: 1%;
+}
+
+.profile-user-info-textcolumn{
+	font-weight: bold;
+	font-size: 18px;
+}
+
+.profile-user-info-text{
+	text-decoration: italic;
+}
+
+.number-routes-completed{
+	font-size: 4rem;
+	line-height: 90%;
+	margin-left: -25%;
+}
+
+.text-routes-completed{
+	text-align: center;
+	margin-left: -15%;
+	font-style: italic;
+
+}
+
+.hr-separate{
+	border: 1px solid black;
+	margin: 0%;
 }
