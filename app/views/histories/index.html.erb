@@ -37,22 +37,38 @@
 			</div>
 			<hr class="hr-separate">
 			<div class="row text-center">
-				<div class="col-md-3"><b>AGE:</b> 27</div>
-				<div class="col-md-3"><b>CITY:</b> Madrid</div>
+				<div class="col-md-3"><b>AGE</b><br>27</div>
+				<div class="col-md-3"><b>CITY</b><br>Linares</div>
+				<div class="col-md-6">
+					<button type="button" class="btn btn-info btn-lg btn-edit-profile">
+						EDIT PROFILE
+					</button>
+				</div>
 			</div>
-
-			<div class="row">
-				<div class="col-md-12">E-MAIL: manu_abalos@hotmail.com</div>
-			</div>
-
 		</div>
 	</div>
 	<div class="col-md-6">
+		<h2 class="text-center"><small>Lastest 10 routes completed</small></h2>
+		<table class="table table text-center table-lastest-routes">
+			<thead>
+	    		<tr>
+	      		<th class="text-center">Date</th>
+     			<th class="text-center">Name</th>
+      			<th class="text-center">Location</th>
+      			<th class="text-center">Difficulty</th>
+		 		</tr>
+			</thead>
 		<% @history.each do |history| %>
 			<% count= 0 %>
-			<%= history.name %> <%= history.location %>  <%= history.difficulty %> <%= @history_date[count].date %> 
+			<tr class="click-row-routes" data-href=<%= route_path(history) %>>
+				<td><%= @history_date[count].date %></td>
+				<td><%= history.name %></td>
+				<td><%= history.location %></td>
+				<td><%= history.difficulty %></td>
+			</tr>
 			<% count += 1 %>
 		<% end %>
+		</table>
 	</div>
 	
 

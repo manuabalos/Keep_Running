@@ -18,7 +18,7 @@
 .profile-user-img{
 	display: block;
 	margin: auto;
-	margin-top: 1%;
+	margin-top: 7%;
 }
 
 .profile-user-name{
@@ -70,4 +70,19 @@
 .hr-separate{
 	border: 1px solid black;
 	margin: 0%;
+	margin-bottom: 1.5%;
+}
+
+.btn-edit-profile{
+	margin: 0;
+	padding: 0;
+	padding-right: 3%;
+	padding-left: 3%;
+	font-size: 12px;
+	border-radius: 0px;
+	margin-top: 4%;
+}
+
+.table-lastest-routes{
+	font-size: 12px;
 }
