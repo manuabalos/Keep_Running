@@ -14,6 +14,6 @@ Rails.application.routes.draw do
   resources :routes do
   	resources :waypoints
   end
-
+  resources :histories
 
 end

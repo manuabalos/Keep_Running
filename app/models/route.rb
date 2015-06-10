@@ -1,6 +1,9 @@
 class Route < ActiveRecord::Base
 	has_many :waypoints
 
+	has_many :histories
+  	has_many :users, through: :histories
+
 	def self.addExperience(route, current_user)
 		case route.difficulty
 			when "Principiantes"
@@ -16,5 +19,19 @@ class Route < ActiveRecord::Base
 			current_user.experience = 0 + expAdd
 			current_user.level += 1
 		end
+
+		current_user.save
+	end
+
+
+	def self.addHistory(route, current_user)
+
+		@history = History.new
+		@history.user_id = current_user.id
+		@history.route_id = route.id
+		@history.date = Date.current
+
+		@history.save
+
 	end
 end
