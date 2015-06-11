@@ -47,7 +47,7 @@
 	var wp_latitude=[], wp_longitude=[];
 	// ---------- SHOW PATH ELEVATION ------ //
 	var myPathElevation = []
-	
+
 	$.ajax({
         	type: 'GET',
         	dataType: 'json',
@@ -64,11 +64,16 @@
 		destination_lat = data.route.destination_lat;
 		destination_lng = data.route.destination_lng;
 
+		myPathElevation.push(new google.maps.LatLng(origin_lat, origin_lng))
+
 		for(i=0;i<data.waypoints.length;i++)
 		{
 			wp_latitude.push(data.waypoints[i].latitude);
 			wp_longitude.push(data.waypoints[i].longitude);
+			myPathElevation.push(new google.maps.LatLng(data.waypoints[i].latitude, data.waypoints[i].longitude))
 		}
+
+		myPathElevation.push(new google.maps.LatLng(destination_lat, destination_lng))
 		initialize();
 	}
 
@@ -90,12 +95,12 @@
 	// The following path marks a general path from Mt.
 	// Whitney, the highest point in the continental United
 	// States to Badwater, Death Valley, the lowest point.
-	var whitney = new google.maps.LatLng(36.578581, -118.291994);
-	var lonepine = new google.maps.LatLng(36.606111, -118.062778);
-	var owenslake = new google.maps.LatLng(36.433269, -117.950916);
-	var beattyjunction = new google.maps.LatLng(36.588056, -116.943056);
-	var panamintsprings = new google.maps.LatLng(36.339722, -117.467778);
-	var badwater = new google.maps.LatLng(36.23998, -116.83171);
+	// var whitney = new google.maps.LatLng(36.578581, -118.291994);
+	// var lonepine = new google.maps.LatLng(36.606111, -118.062778);
+	// var owenslake = new google.maps.LatLng(36.433269, -117.950916);
+	// var beattyjunction = new google.maps.LatLng(36.588056, -116.943056);
+	// var panamintsprings = new google.maps.LatLng(36.339722, -117.467778);
+	// var badwater = new google.maps.LatLng(36.23998, -116.83171);
 
 	// Load the Visualization API and the columnchart package.
 	google.load('visualization', '1', {packages: ['columnchart']});
@@ -181,12 +186,12 @@
 	  // Create a new chart in the elevation_chart DIV.
 	  chart = new google.visualization.ColumnChart(document.getElementById('elevation_chart'));
 
-	  var path = [ whitney, lonepine, owenslake, panamintsprings, beattyjunction, badwater];
+	  //var path = [ whitney, lonepine, owenslake, panamintsprings, beattyjunction, badwater];
 
 	  // Create a PathElevationRequest object using this array.
 	  // Ask for 256 samples along that path.
 	  var pathRequest = {
-	    'path': path,
+	    'path': myPathElevation,
 	    'samples': 256
 	  }
 
