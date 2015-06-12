@@ -19,7 +19,6 @@ class Route < ActiveRecord::Base
 			current_user.experience = 0 + expAdd
 			current_user.level += 1
 		end
-
 		current_user.save
 	end
 
@@ -30,7 +29,6 @@ class Route < ActiveRecord::Base
 		@history.user_id = current_user.id
 		@history.route_id = route.id
 		@history.date = Date.current
-
 		@history.save
 
 	end

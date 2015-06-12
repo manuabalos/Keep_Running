@@ -58,13 +58,14 @@
       			<th class="text-center">Difficulty</th>
 		 		</tr>
 			</thead>
-		<% @history.each do |history| %>
+		<% @histories.each do |history| %>
 			<% count= 0 %>
 			<tr class="click-row-routes" data-href=<%= route_path(history) %>>
-				<td><%= @history_date[count].date %></td>
-				<td><%= history.name %></td>
-				<td><%= history.location %></td>
-				<td><%= history.difficulty %></td>
+				<!--<td><%# @history_date[count].created_at %></td>-->
+				<td><%= history.date %></td>
+				<td><%= history.route.name %></td>
+				<td><%= history.route.location %></td>
+				<td><%= history.route.difficulty %></td>
 			</tr>
 			<% count += 1 %>
 		<% end %>

@@ -31,8 +31,7 @@ class RoutesController < ApplicationController
 		Route.addExperience(@route, current_user)
 		Route.addHistory(@route, current_user)
 		
-		#redirect_to route_path(@route)
-		redirect_to histories_path
+		redirect_to route_path(@route)
 	end
 
 	private

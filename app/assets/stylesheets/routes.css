@@ -122,3 +122,24 @@
     background: #FAAC58;
     color:#222;
 }
+
+/* Ventana emergente que muestra que se ha añadido la ruta al historial*/
+.add-success-history{
+	color: white;
+	text-align: center;
+}
+
+#modal2{
+	width: 400px;
+	height: 80px;
+	display: block;
+	margin: auto;
+}
+
+.icon-success-add-history{
+	text-shadow: -1px 0 #FFF, 0 1px #FFF, 1px 0 #FFF, 0 -1px #FFF;
+	color: black;
+	text-align: center;
+	font-size: 20px;
+
+}
