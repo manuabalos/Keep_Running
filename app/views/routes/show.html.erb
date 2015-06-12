@@ -45,6 +45,7 @@
 	// ---------- ROUTES SPOTS ------------ //
 	var latitude, longitude, origin_lat, origin_lng, destination_lat, detination_lng;
 	var wp_latitude=[], wp_longitude=[];
+	var route_description;
 	// ---------- SHOW PATH ELEVATION ------ //
 	var myPathElevation = []
 
@@ -57,6 +58,7 @@
 
 	function takingRoute(data)
 	{
+		route_description = data.route.description
 		latitude = data.route.latitude;
 		longitude = data.route.longitude;
 		origin_lat = data.route.origin_lat;
@@ -92,20 +94,8 @@
 	var chart;
 	var polyline;
 
-	// The following path marks a general path from Mt.
-	// Whitney, the highest point in the continental United
-	// States to Badwater, Death Valley, the lowest point.
-	// var whitney = new google.maps.LatLng(36.578581, -118.291994);
-	// var lonepine = new google.maps.LatLng(36.606111, -118.062778);
-	// var owenslake = new google.maps.LatLng(36.433269, -117.950916);
-	// var beattyjunction = new google.maps.LatLng(36.588056, -116.943056);
-	// var panamintsprings = new google.maps.LatLng(36.339722, -117.467778);
-	// var badwater = new google.maps.LatLng(36.23998, -116.83171);
-
 	// Load the Visualization API and the columnchart package.
 	google.load('visualization', '1', {packages: ['columnchart']});
-
-
 
 	function initialize()
 	{
@@ -132,7 +122,7 @@
 
 		// Añadimos un comentario en la marca del mapa
 		var infowindow = new google.maps.InfoWindow({
-			content:"Hello World!"
+			content: route_description
 			});
 
 		google.maps.event.addListener(marker, 'click', function() {
@@ -146,12 +136,10 @@
 		elevator = new google.maps.ElevationService();
 
 		// Draw the path, using the Visualization API and the Elevation service.
-
 		drawPath();
 		}
 	}
 
-			
 	function calcRoute() {
 		var request = {
 			origin: new google.maps.LatLng(origin_lat, origin_lng), // ORIGEN
@@ -186,13 +174,11 @@
 	  // Create a new chart in the elevation_chart DIV.
 	  chart = new google.visualization.ColumnChart(document.getElementById('elevation_chart'));
 
-	  //var path = [ whitney, lonepine, owenslake, panamintsprings, beattyjunction, badwater];
-
 	  // Create a PathElevationRequest object using this array.
 	  // Ask for 256 samples along that path.
 	  var pathRequest = {
 	    'path': myPathElevation,
-	    'samples': 256
+	    'samples': 500
 	  }
 
 	  // Initiate the path request.
@@ -239,7 +225,8 @@
 	  chart.draw(data, {
 	    height: 150,
 	    legend: 'none',
-	    titleY: 'Elevation (m)'
+	    titleY: 'Elevation (m)',
+	    vAxis: {minValue: 0}
 	  });
 	}
 
