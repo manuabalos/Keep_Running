@@ -30,7 +30,7 @@ class RoutesController < ApplicationController
 		@route = Route.find(params[:id])
 		Route.addExperience(@route, current_user)
 		Route.addHistory(@route, current_user)
-		
+
 		redirect_to route_path(@route)
 	end
 
