@@ -128,4 +128,9 @@
 #modal-addhistory{
 	z-index: 9999;
 	margin-top: 5rem;
+	text-align: center;
+}
+
+.modal-click-background{
+	background-color: #00FF37 !important;
 }

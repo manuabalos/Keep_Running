@@ -20,9 +20,7 @@ $(document).ready(function(){
         	url: this_url + "/history",
         	success: function(response) { console.log("Success ",response); },
         	error: function(response) { console.log("Error ",response); }
-
    		})
-
-	});	
-	
+		$("#btn-addHistory").addClass("btn-success");
+	});
 });
