@@ -10,12 +10,10 @@
 			</a>
 
 			<!--<a href="#modal2">-->
-			<%= link_to addHistory_path do %>
-			<button type="button" class="btn btn-default btn-lg menu-btn-map">
+			<button type="button" id="btn-addHistory" class="btn btn-default btn-lg menu-btn-map" data-toggle="modal" data-target="#modal-addhistory">
 				<span class="glyphicon glyphicon-copy menu-icon"></span>
 				<p>ADD TO MY HISTORY</p>
 			</button>
-			<% end %>
 			<!-- </a> -->
 
 		</div>
@@ -34,19 +32,28 @@
 
 <div id="modal1" class="modalmask">
     <div class="modalbox movedown">
-        <a href="#close" title="Close" class="close">X</a>
+        <a href="#close" title="Close" class="closeElevation">X</a>
         <div id="elevation_chart"></div>
     </div>
 </div>
 
-<div id="modal2" class="modalmask">
-    <div class="modalbox movedown">
-        <a href="#close" title="Close" class="close">X</a>
-        <p class="add-success-history">
-        	<span class="glyphicon glyphicon-ok icon-success-add-history"></span>
-        	&nbsp; La routa ha sido añadida a su historial con éxito.
-        </p>
+<!-- Modal -->
+<div class="modal fade" id="modal-addhistory" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
     </div>
+  </div>
 </div>
 
 <script type="text/javascript">

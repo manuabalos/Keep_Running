@@ -9,11 +9,12 @@ Rails.application.routes.draw do
   delete 'routes/sign_out', to: 'sessions#destroy'
 
   # ---------- ADD HISTORY
-  get 'routes/:id/history', to: 'routes#addHistory', as: 'addHistory'
 
   resources :routes do
   	resources :waypoints
   end
   resources :histories
+  post 'routes/:id/history', to: 'routes#addHistory', as: 'add_history'
+
 
 end

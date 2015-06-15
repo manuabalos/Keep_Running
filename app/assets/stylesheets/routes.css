@@ -103,7 +103,7 @@
     margin: 7% auto;
 }
 
-.close {
+.closeElevation {
     background: #606061;
     color: #FFFFFF;
     line-height: 25px;
@@ -124,22 +124,8 @@
 }
 
 /* Ventana emergente que muestra que se ha añadido la ruta al historial*/
-.add-success-history{
-	color: white;
-	text-align: center;
-}
 
-#modal2{
-	width: 400px;
-	height: 80px;
-	display: block;
-	margin: auto;
-}
-
-.icon-success-add-history{
-	text-shadow: -1px 0 #FFF, 0 1px #FFF, 1px 0 #FFF, 0 -1px #FFF;
-	color: black;
-	text-align: center;
-	font-size: 20px;
-
+#modal-addhistory{
+	z-index: 9999;
+	margin-top: 5rem;
 }

@@ -21,17 +21,18 @@ class RoutesController < ApplicationController
 	      		format.json { render json: {:route => @route, :waypoints => @waypoints} }
 	    	end
     	else
-			redirect_to root_path
+			redirect_to root_path 
 		end
 	end
 
 	def addHistory
-		# Sumamos la experiencia
 		@route = Route.find(params[:id])
+		# Sumamos la experiencia
 		Route.addExperience(@route, current_user)
+		# Añadimos la ruta al historial
 		Route.addHistory(@route, current_user)
 
-		redirect_to route_path(@route)
+		render json: 1
 	end
 
 	private
