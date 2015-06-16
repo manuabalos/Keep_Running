@@ -9,10 +9,12 @@
 			</button>
 			</a>
 
+			<a href="#modalWeather">
 			<button type="button" class="btn btn-default btn-lg menu-btn-map">
 				<span class="glyphicon glyphicon-certificate menu-icon"></span>
 				<p>SHOW WEATHER</p>
 			</button>
+			</a>
 
 			<button type="button" id="btn-addHistory" class="btn btn-default btn-lg menu-btn-map" data-toggle="modal" data-target="#modal-addhistory">
 				<span class="glyphicon glyphicon-copy menu-icon"></span>
@@ -33,10 +35,33 @@
 <div class="col-md-2"></div>
 
 <!-- Modal Show Elevation Button-->
-<div id="modalElevation" class="modalmask">
+<div id="modalElevation" class="modalmaskElevation">
     <div class="modalbox movedown">
         <a href="#close" title="Close" class="closeElevation">X</a>
         <div id="elevation_chart"></div>
+    </div>
+</div>
+
+<!-- Modal Show Weather Button-->
+<div id="modalWeather" class="modalmaskWeather">
+    <div class="modalbox movedown" id="div-weather">
+        <a href="#close" title="Close" class="closeElevation">X</a>
+        
+        <table class='table table-bordered table-hover'>
+        	<thead>
+        	<tr class='info'>
+        		<th>Hour</th>
+        		<th>Weather</th>
+        		<th>Description</th>
+        		<th>Tª Min.</th>
+        		<th>Tª Max.</th>
+        		<th>Prob.Rain</th>
+        	</tr>
+        	</thead>
+        	<tbody class="row-weather">
+        	
+        	</tbody>
+        </table>
     </div>
 </div>
 

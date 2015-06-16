@@ -72,7 +72,7 @@ tr.click-row-routes { cursor: pointer; }
 
 
 /* Ventana emergente que muestra la elevacion del terreno*/
-.modalmask {
+.modalmaskElevation {
     position: fixed;
     font-family: Arial, sans-serif;
     top: 0;
@@ -92,7 +92,7 @@ tr.click-row-routes { cursor: pointer; }
 	margin-top: 17%;
 	margin-left: 16.65%;
 }
-.modalmask:target {
+.modalmaskElevation:target {
     opacity:1;
     pointer-events: auto;
 }
@@ -101,7 +101,7 @@ tr.click-row-routes { cursor: pointer; }
     margin: 0 auto;
 }
 
-.modalmask:target .movedown{       
+.modalmaskElevation:target .movedown{       
     margin: 7% auto;
 }
 
@@ -125,8 +125,65 @@ tr.click-row-routes { cursor: pointer; }
     color:#222;
 }
 
-/* Ventana emergente que muestra que se ha añadido la ruta al historial*/
+/* Ventana emergente que muestra el tiempo*/
+.modalmaskWeather {
+    position: fixed;
+    font-family: Arial, sans-serif;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.8);
+    z-index: 99999;
+    opacity:0;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
+    width:850px;
+	height:450px;
+	padding: 0;
+	margin-top: 10%;
+	margin-left: 16.65%;
+}
+.modalmaskWeather:target {
+    opacity:1;
+    pointer-events: auto;
+}
 
+.movedown {
+    margin: 0 auto;
+}
+
+.modalmaskWeather:target .movedown{       
+    margin: 7% auto;
+}
+
+.closeElevation {
+    background: #606061;
+    color: #FFFFFF;
+    line-height: 25px;
+    position: absolute;
+    right: 1px;
+    text-align: center;
+    top: 1px;
+    width: 24px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius:3px;
+ 
+}
+ 
+.close:hover {
+    background: #FAAC58;
+    color:#222;
+}
+
+#div-weather{
+	background-color: white;
+}
+
+/* Ventana emergente que muestra que se ha añadido la ruta al historial*/
 #modal-addhistory{
 	z-index: 9999;
 	margin-top: 5rem;

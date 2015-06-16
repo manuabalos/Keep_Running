@@ -22,6 +22,68 @@ $(document).ready(function(){
    		})
 		$("#btn-addHistory").addClass("btn-success");
 	});
+
+
+	// ================================================================================
+	//                       A P I  O P E N   W E A T H E R  M A P  
+	// ================================================================================
+
+	$.ajax({
+        type: 'GET',
+        dataType: 'json',
+        url: "http://api.openweathermap.org/data/2.5/forecast/weather?lat="+latitude+"&lon="+longitude+"&units=metric&lang=en",
+        success: function(response) { takingWeather(response) },
+        error: function(response) { console.log("Error ",response); }
+   	})
+
+   	function takingWeather(response)
+   	{
+   		dateNow = getDateTime();
+   		
+	   		for(var i=0; i<response.list.length-1; i++)
+	   		{
+	   			dateCompleteResponse = response.list[i].dt_txt
+	   			dateResponse = dateCompleteResponse.split(" ");
+	   			if(dateResponse[0] == dateNow)
+	   			{
+	   				$(".row-weather").append("<tr>");
+	   				$(".row-weather").append("<td>"+dateResponse[1]+"</td>"); // Hora
+	   				$(".row-weather").append("<td><img src='http://openweathermap.org/img/w/"+response.list[i].weather[0].icon+".png'></td>"); // Icono
+	   				$(".row-weather").append("<td>"+response.list[i].weather[0].description+"</td>"); // Descripcion
+	   				$(".row-weather").append("<td>"+response.list[i].main.temp_min+"</td>");
+	   				$(".row-weather").append("<td>"+response.list[i].main.temp_max+"</td>");
+	   				$(".row-weather").append("<td>"+response.list[i].rain['3h']+"</td>");
+	   				$(".row-weather").append("</tr>");
+		 			//x console.log(response);
+			   		//x console.log(response.list[i].dt_txt); // Fecha y hora 2015-06-18 12:00:00
+			   		//x console.log(response.list[i].main.temp_min); // Temperatura minima
+			   		//x console.log(response.list[i].main.temp_max); // Temperatura maxima
+			   		//x console.log(response.list[i].rain['3h']); // Probabilidad de lluvia
+			   		//x console.log(response.list[i].weather[0].icon); // Icono
+			   		//x console.log(response.list[i].weather[0].description); // Descripcion
+			   		// console.log("----------------------------------------");  				
+		   		}
+	   		}
+   	}
+
+   	function getDateTime() {
+	    var now     = new Date(); 
+	    var year    = now.getFullYear();
+	    var month   = now.getMonth()+1; 
+	    var day     = now.getDate();
+
+	    if(month.toString().length == 1) {
+	        var month = '0'+month;
+	    }
+	    if(day.toString().length == 1) {
+	        var day = '0'+day;
+	    }   
+  
+	    var dateTime = year+'-'+month+'-'+day;   
+	    return dateTime;
+	}
+
+
 });
 
 // ================================================================================
@@ -216,55 +278,4 @@ $(document).ready(function(){
 	}
 
 	google.maps.event.addDomListener(window, 'load', initialize);
-
-// ================================================================================
-//                       A P I  O P E N   W E A T H E R  M A P  
-// ================================================================================
-
-	$.ajax({
-        type: 'GET',
-        dataType: 'json',
-        url: "http://api.openweathermap.org/data/2.5/forecast/weather?lat="+latitude+"&lon="+longitude+"&units=metric&lang=en",
-        success: function(response) { takingWeather(response) },
-        error: function(response) { console.log("Error ",response); }
-   	})
-
-   	function takingWeather(response)
-   	{
-   		dateNow = getDateTime();
-   		
-   		for(var i=0; i<response.list.length-1; i++)
-   		{
-   			dateCompleteResponse = response.list[i].dt_txt
-   			dateResponse = dateCompleteResponse.split(" ");
-   			if(dateResponse[0] == dateNow)
-   			{
-	 			console.log(response);
-		   		console.log(response.list[i].dt_txt); // Fecha y hora 2015-06-18 12:00:00
-		   		console.log(response.list[i].main.temp_min); // Temperatura minima
-		   		console.log(response.list[i].main.temp_max); // Temperatura maxima
-		   		console.log(response.list[i].rain['3h']); // Probabilidad de lluvia
-		   		console.log(response.list[i].weather[0].icon); // Icono
-		   		console.log(response.list[i].weather[0].description); // Descripcion
-		   		console.log("----------------------------------------");  				
-	   		}
-   		}
-   	}
-
-   	function getDateTime() {
-	    var now     = new Date(); 
-	    var year    = now.getFullYear();
-	    var month   = now.getMonth()+1; 
-	    var day     = now.getDate();
-
-	    if(month.toString().length == 1) {
-	        var month = '0'+month;
-	    }
-	    if(day.toString().length == 1) {
-	        var day = '0'+day;
-	    }   
-  
-	    var dateTime = year+'-'+month+'-'+day;   
-	    return dateTime;
-	}
 
