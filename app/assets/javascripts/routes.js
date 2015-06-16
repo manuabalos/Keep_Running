@@ -97,12 +97,15 @@ $(document).ready(function(){
 	// ---------- SHOW PATH ELEVATION ------ //
 	var myPathElevation = []
 
-	$.ajax({
-        	type: 'GET',
-        	dataType: 'json',
-        	url: this_url,
-        	success: function(data) { takingRoute(data); }
-   	})
+	$(document).ready(function(){
+		$.ajax({
+	        type: 'GET',
+	        dataType: 'json',
+	        url: this_url,
+	        success: function(data) { takingRoute(data); },
+	        error: function(data) { console.log("Error ",data); }
+	   	})
+	});
 
 	function takingRoute(data)
 	{
