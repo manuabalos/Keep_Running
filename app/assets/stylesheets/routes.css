@@ -183,6 +183,17 @@ tr.click-row-routes { cursor: pointer; }
 	background-color: white;
 }
 
+.table-weather{
+	text-align: center;
+}
+.img-weather{
+	margin-top: -15px;
+	margin-bottom: -15px;
+}
+
+th{
+	text-align: center;
+}
 /* Ventana emergente que muestra que se ha añadido la ruta al historial*/
 #modal-addhistory{
 	z-index: 9999;

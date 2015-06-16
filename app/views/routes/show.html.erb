@@ -11,7 +11,7 @@
 
 			<a href="#modalWeather">
 			<button type="button" class="btn btn-default btn-lg menu-btn-map">
-				<span class="glyphicon glyphicon-certificate menu-icon"></span>
+				<span class="glyphicon glyphicon-cloud menu-icon"></span>
 				<p>SHOW WEATHER</p>
 			</button>
 			</a>
@@ -47,9 +47,9 @@
     <div class="modalbox movedown" id="div-weather">
         <a href="#close" title="Close" class="closeElevation">X</a>
         
-        <table class='table table-bordered table-hover'>
+        <table class='table table-striped table-weather'>
         	<thead>
-        	<tr class='info'>
+        	<tr class='info' >
         		<th>Hour</th>
         		<th>Weather</th>
         		<th>Description</th>
@@ -59,7 +59,7 @@
         	</tr>
         	</thead>
         	<tbody class="row-weather">
-        	
+        		<!-- Se añaden las columnas a traves de Javascript -->
         	</tbody>
         </table>
     </div>

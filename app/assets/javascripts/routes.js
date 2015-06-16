@@ -44,24 +44,21 @@ $(document).ready(function(){
 	   		{
 	   			dateCompleteResponse = response.list[i].dt_txt
 	   			dateResponse = dateCompleteResponse.split(" ");
+
+	   			hourCompleteResponse = dateResponse[1].split(":")
+	   			hourResponse = hourCompleteResponse[0]+":"+hourCompleteResponse[1];
 	   			if(dateResponse[0] == dateNow)
 	   			{
-	   				$(".row-weather").append("<tr>");
-	   				$(".row-weather").append("<td>"+dateResponse[1]+"</td>"); // Hora
-	   				$(".row-weather").append("<td><img src='http://openweathermap.org/img/w/"+response.list[i].weather[0].icon+".png'></td>"); // Icono
-	   				$(".row-weather").append("<td>"+response.list[i].weather[0].description+"</td>"); // Descripcion
-	   				$(".row-weather").append("<td>"+response.list[i].main.temp_min+"</td>");
-	   				$(".row-weather").append("<td>"+response.list[i].main.temp_max+"</td>");
-	   				$(".row-weather").append("<td>"+response.list[i].rain['3h']+"</td>");
-	   				$(".row-weather").append("</tr>");
-		 			//x console.log(response);
-			   		//x console.log(response.list[i].dt_txt); // Fecha y hora 2015-06-18 12:00:00
-			   		//x console.log(response.list[i].main.temp_min); // Temperatura minima
-			   		//x console.log(response.list[i].main.temp_max); // Temperatura maxima
-			   		//x console.log(response.list[i].rain['3h']); // Probabilidad de lluvia
-			   		//x console.log(response.list[i].weather[0].icon); // Icono
-			   		//x console.log(response.list[i].weather[0].description); // Descripcion
-			   		// console.log("----------------------------------------");  				
+	   				text_hour = "<tr><td><b>"+hourResponse+"</b></td>";
+	   				text_icon = "<td><img class='img-weather' src='http://openweathermap.org/img/w/"+response.list[i].weather[0].icon+".png'></td>";
+	   				text_description = "<td>"+response.list[i].weather[0].description+"</td>";
+	   				text_tmin = "<td>"+response.list[i].main.temp_min+"ºC</td>";
+	   				text_tmax = "<td>"+response.list[i].main.temp_max+"ºC</td>";
+	   				text_prob = "<td>"+response.list[i].rain['3h']+"mm.</td></tr>";
+	   				
+	   				text_row = text_hour+text_icon+text_description+text_tmin+text_tmax+text_prob;
+	   				
+	   				$(".row-weather").append(text_row);				
 		   		}
 	   		}
    	}
