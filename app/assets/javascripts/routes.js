@@ -17,7 +17,7 @@ $(document).ready(function(){
         	type: 'POST',
         	dataType: 'json',
         	url: this_url + "/history",
-        	success: function(response) { console.log("Success ",response); },
+        	success: function(response) { $("#btn-addHistory").prop("disabled",true); console.log("Success ",response); },
         	error: function(response) { console.log("Error ",response); }
    		})
 		$("#btn-addHistory").addClass("btn-success");
