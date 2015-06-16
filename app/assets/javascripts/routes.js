@@ -221,7 +221,6 @@ $(document).ready(function(){
 //                       A P I  O P E N   W E A T H E R  M A P  
 // ================================================================================
 
-
 	$.ajax({
         type: 'GET',
         dataType: 'json',
@@ -232,12 +231,40 @@ $(document).ready(function(){
 
    	function takingWeather(response)
    	{
-   		console.log(response);
-   		console.log(response.list[0].dt_txt); // Fecha y hora
-   		console.log(response.list[0].main.temp_min); // Temperatura minima
-   		console.log(response.list[0].main.temp_max); // Temperatura maxima
-   		console.log(response.list[0].rain['3h']); // Probabilidad de lluvia
-   		console.log(response.list[0].weather[0].icon); // Icono
-   		console.log(response.list[0].weather[0].description); // Descripcion
+   		dateNow = getDateTime();
+   		
+   		for(var i=0; i<response.list.length-1; i++)
+   		{
+   			dateCompleteResponse = response.list[i].dt_txt
+   			dateResponse = dateCompleteResponse.split(" ");
+   			if(dateResponse[0] == dateNow)
+   			{
+	 			console.log(response);
+		   		console.log(response.list[i].dt_txt); // Fecha y hora 2015-06-18 12:00:00
+		   		console.log(response.list[i].main.temp_min); // Temperatura minima
+		   		console.log(response.list[i].main.temp_max); // Temperatura maxima
+		   		console.log(response.list[i].rain['3h']); // Probabilidad de lluvia
+		   		console.log(response.list[i].weather[0].icon); // Icono
+		   		console.log(response.list[i].weather[0].description); // Descripcion
+		   		console.log("----------------------------------------");  				
+	   		}
+   		}
    	}
+
+   	function getDateTime() {
+	    var now     = new Date(); 
+	    var year    = now.getFullYear();
+	    var month   = now.getMonth()+1; 
+	    var day     = now.getDate();
+
+	    if(month.toString().length == 1) {
+	        var month = '0'+month;
+	    }
+	    if(day.toString().length == 1) {
+	        var day = '0'+day;
+	    }   
+  
+	    var dateTime = year+'-'+month+'-'+day;   
+	    return dateTime;
+	}
 
