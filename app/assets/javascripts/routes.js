@@ -216,3 +216,28 @@ $(document).ready(function(){
 	}
 
 	google.maps.event.addDomListener(window, 'load', initialize);
+
+// ================================================================================
+//                       A P I  O P E N   W E A T H E R  M A P  
+// ================================================================================
+
+
+	$.ajax({
+        type: 'GET',
+        dataType: 'json',
+        url: "http://api.openweathermap.org/data/2.5/forecast/weather?lat="+latitude+"&lon="+longitude+"&units=metric&lang=en",
+        success: function(response) { takingWeather(response) },
+        error: function(response) { console.log("Error ",response); }
+   	})
+
+   	function takingWeather(response)
+   	{
+   		console.log(response);
+   		console.log(response.list[0].dt_txt); // Fecha y hora
+   		console.log(response.list[0].main.temp_min); // Temperatura minima
+   		console.log(response.list[0].main.temp_max); // Temperatura maxima
+   		console.log(response.list[0].rain['3h']); // Probabilidad de lluvia
+   		console.log(response.list[0].weather[0].icon); // Icono
+   		console.log(response.list[0].weather[0].description); // Descripcion
+   	}
+
