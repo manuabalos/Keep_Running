@@ -8,13 +8,12 @@ Rails.application.routes.draw do
   delete 'sign_out', to: 'sessions#destroy', as: 'sign_out'
   delete 'routes/sign_out', to: 'sessions#destroy'
 
-  # ---------- ADD HISTORY
-
   resources :routes do
   	resources :waypoints
   end
   resources :histories
-  post 'routes/:id/history', to: 'routes#addHistory', as: 'add_history'
 
+    # ---------- ADD HISTORY
+  post 'routes/:id/history', to: 'routes#addHistory', as: 'add_history'
 
 end
