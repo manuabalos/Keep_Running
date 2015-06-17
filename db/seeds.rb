@@ -5,10 +5,21 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-	User.create(provider: "facebook", uid: "101653370178209", name: "Betty Alalfcha Valtchano")
-	User.create(provider: "facebook", uid: "100009988771867", name: "Rick Amiihh Goldman")
-	User.create(provider: "facebook", uid: "112539772415669", name: "Karen Amighi Zamore")
-	User.create(provider: "facebook", uid: "1420633874928552", name: "Dave Amide Lauman")
+	User.create(provider: "facebook", uid: "101653370178209", name: "Betty Alalfcha Valtchano", level: 3, experience: 75)
+	User.create(provider: "facebook", uid: "100009988771867", name: "Rick Amiihh Goldman", level: 5, experience: 100)
+	User.create(provider: "facebook", uid: "112539772415669", name: "Karen Amighi Zamore", level: 6, experience: 400)
+	User.create(provider: "facebook", uid: "1420633874928552", name: "Dave Amide Lauman", level: 6, experience: 200)
+	User.create(provider: "facebook", uid: "129466917384483", name: "James Chrarrisom Gutier", level: 8, experience: 700)
+	User.create(provider: "facebook", uid: "100009893824741", name: "Julyan Amihi Green", level: 2, experience: 800)
+	User.create(provider: "facebook", uid: "100009536628671", name: "Jhoan Amiec Laver", level: 3, experience: 300)
+	User.create(provider: "facebook", uid: "100009455212833", name: "Will Amid Letuchy", level: 2, experience: 10)
+	User.create(provider: "facebook", uid: "100009418134866", name: "David Amidaha Martina", level: 45, experience: 20)
+	User.create(provider: "facebook", uid: "100010020541989", name: "Tom Alak Chang", level: 34, experience: 50)
+	User.create(provider: "facebook", uid: "100009660163985", name: "Barbara Amiffja Trum", level: 65, experience: 90)
+	User.create(provider: "facebook", uid: "100009525409143", name: "Elissa Amie Yangsky", level: 77, experience: 350)
+	User.create(provider: "facebook", uid: "100009471352002", name: "Donna Gacebkb Bower", level: 21, experience: 250)
+	User.create(provider: "facebook", uid: "100009966812591", name: "Nancy Afhabeia Dingle", level: 18, experience: 650)
+	User.create(provider: "facebook", uid: "100009615044966", name: "Harry Mifae Sharpe", level: 19, experience: 550)
 
 	Route.create( name: "Parque del Retiro", description: "Recorrido por la zona exterior del parque del Retiro.",
 				  location: "Madrid", difficulty: "Intermedia", latitude: 40.416100, longitude: -3.684284,
