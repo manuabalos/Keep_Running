@@ -16,4 +16,6 @@ Rails.application.routes.draw do
     # ---------- ADD HISTORY
   post 'routes/:id/history', to: 'routes#addHistory', as: 'add_history'
 
+  resources :ladders
+
 end

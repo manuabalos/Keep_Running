@@ -5,7 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-	User.create(provider: "facebook", uid: "494404870709758", name: "Manuel Ábalos Serrano")
+	User.create(provider: "facebook", uid: "101653370178209", name: "Betty Alalfcha Valtchano")
+	User.create(provider: "facebook", uid: "100009988771867", name: "Rick Amiihh Goldman")
+	User.create(provider: "facebook", uid: "112539772415669", name: "Karen Amighi Zamore")
+	User.create(provider: "facebook", uid: "1420633874928552", name: "Dave Amide Lauman")
 
 	Route.create( name: "Parque del Retiro", description: "Recorrido por la zona exterior del parque del Retiro.",
 				  location: "Madrid", difficulty: "Intermedia", latitude: 40.416100, longitude: -3.684284,

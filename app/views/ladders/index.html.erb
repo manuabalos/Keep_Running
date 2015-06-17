@@ -1,0 +1,19 @@
+<div class="col-md-2"></div>
+<div class="col-md-8 div-ladder">
+
+	<div class="row row-ladder-user">
+		<div class="col-md-2"><span class="user-number-position">79</span></div>
+		<div class="col-md-2">
+			<%= image_tag(@auth['info']['image'], class: 'img-circle img-ladder') %>
+		</div>
+		<div class="col-md-4"><samp class="user-name-ladder"><%= current_user.name %></samp></div>
+		<div class="col-md-2">LV.<%= current_user.level %></div>
+		<div class="col-md-2">
+			<%= current_user.experience %> / 1000
+		</div>
+	</div>
+
+	<pre>TOP 5 Runners</pre>
+
+</div>
+<div class="col-md-2"></div>
