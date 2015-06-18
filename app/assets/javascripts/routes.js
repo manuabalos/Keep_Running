@@ -38,6 +38,7 @@ $(document).ready(function(){
 
    	function takingWeather(response)
    	{
+   		console.log(response);
    		dateNow = getDateTime();
    		
 	   		for(var i=0; i<response.list.length-1; i++)
@@ -54,8 +55,11 @@ $(document).ready(function(){
 	   				text_description = "<td>"+response.list[i].weather[0].description+"</td>";
 	   				text_tmin = "<td>"+response.list[i].main.temp_min+"ºC</td>";
 	   				text_tmax = "<td>"+response.list[i].main.temp_max+"ºC</td>";
-	   				text_prob = "<td>"+response.list[i].rain['3h']+"mm.</td></tr>";
-	   				
+	   				if(response.list[i].rain)
+	   					text_prob = "<td>"+response.list[i].rain['3h']+"mm.</td></tr>";
+	   				else
+	   					text_prob = "<td></td></tr>";
+
 	   				text_row = text_hour+text_icon+text_description+text_tmin+text_tmax+text_prob;
 	   				
 	   				$(".row-weather").append(text_row);				
