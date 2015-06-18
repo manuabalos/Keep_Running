@@ -2,8 +2,8 @@
 <div class="col-md-8 div-ladder">
 
 	<!-- <h4 class="text-center"> Top 3 runners on the world </h4>
-	<% @toprunners.each do |runner| %>
-		<% namerunner = runner.name.split(" ") %>
+	<%# @toprunners.each do |runner| %>
+		<%# namerunner = runner.name.split(" ") %>
 		<div class="row row-top-ladder-users pull-left">
 			<div class="col-md-3">
 				<%# if "prueba" != "prueba" %> --> <!-- Falta controlar la imagen de los usuarios -->
@@ -13,10 +13,10 @@
 				<%# end %>
 				<%# image_tag(@auth['info']['image'], class: 'img-circle img-ladder') %>
 			</div>
-			<div class="col-md-5"><samp class="top-users-name-ladder"><%= namerunner[0] %></samp></div>
-			<div class="col-md-4">LV.<%= runner.level %></div>
+			<div class="col-md-5"><samp class="top-users-name-ladder"><%# namerunner[0] %></samp></div>
+			<div class="col-md-4">LV.<%# runner.level %></div>
 		</div>
-	<% end %>
+	<%# end %>
 	<div class="clearfix"></div> -->
 	
 
@@ -32,47 +32,74 @@
 		<% position += 1 %>
 
 	<% end %>
-	<% pos = position+1 %>
+
 	<div class="row rank-status-div">
-	<table class="table table-hover">
-		<tr>
-			<td><%= position-2 %></td>
-			<td><img src='/user.png' class='img-circle img-ladder'></td>
-			<td><%= @runners[position-2].name %></td>
-			<td><%= @runners[position-2].level %></td>
-			<td><%= @runners[position-2].experience %></td>
-		</tr>
-		<tr>
-			<td><%= position-1%></td>
-			<td><img src='/user.png' class='img-circle img-ladder'></td>
-			<td><%= @runners[position-1].name %></td>
-			<td><%= @runners[position-1].level %></td>
-			<td><%= @runners[position-1].experience %></td>
-		</tr>
-		<tr>
-			<td><%= position %></td>
-			<td><%= image_tag(@auth['info']['image'], class: 'img-circle img-ladder') %></td>
-			<td><%= @runners[position].name %></td>
-			<td><%= @runners[position].level %></td>
-			<td><%= @runners[position].experience %></td>
-		</tr>
-		<% if(pos <= @runners.length) %>
-		<tr>
-			<td><%= pos %></td>
-			<td><img src='/user.png' class='img-circle img-ladder'></td>
-			<td><%= @runners[pos].name %></td>
-			<td><%= @runners[pos].level %></td>
-			<td><%= @runners[pos].experience %></td>
-		</tr>
-		<% elsif position+2 < @runners.length %>
-		<tr>
-			<td><%= position+2 %></td>
-			<td><img src='/user.png' class='img-circle img-ladder'></td>
-			<td><%= @runners[position+2].name %></td>
-			<td><%= @runners[position+2].level %></td>
-			<td><%= @runners[position+2].experience %></td>
-		</tr>
-		<% end %>
+	<table class="table table-condensed table-ladder">
+			<thead>
+        		<tr class='danger' >
+        			<th>Position</th>
+        			<th>Rank</th>
+        			<th>Photo</th>
+        			<th>Name</th>
+        			<th>Level</th>
+        			<th>Experience</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        		<tr>
+					<td class="users-number-position">1</td>
+					<td></td>
+					<td><img src='/user.png' class='img-circle img-ladder'></td>
+					<td class="users-name-ladder"><%= @toprunner.name %></td>
+					<td><%= @toprunner.level %></td>
+					<td><%= @toprunner.experience %>/1000</td>
+				</tr>
+				<tr><td colspan='6'>...</td></tr>
+				<tr>
+					<td class="users-number-position"><%= position-2 %></td>
+					<td></td>
+					<td><img src='/user.png' class='img-circle img-ladder'></td>
+					<td class="users-name-ladder"><%= @runners[position-2].name %></td>
+					<td><%= @runners[position-2].level %></td>
+					<td><%= @runners[position-2].experience %>/1000</td>
+				</tr>
+				<tr>
+					<td class="users-number-position"><%= position-1%></td>
+					<td></td>
+					<td><img src='/user.png' class='img-circle img-ladder'></td>
+					<td><%= @runners[position-1].name %></td>
+					<td><%= @runners[position-1].level %></td>
+					<td><%= @runners[position-1].experience %>/1000</td>
+				</tr>
+				<tr>
+					<td class="users-number-position"><%= position %></td>
+					<td></td>
+					<td><%= image_tag(@auth['info']['image'], class: 'img-circle img-ladder') %></td>
+					<td><%= @runners[position].name %></td>
+					<td><%= @runners[position].level %></td>
+					<td><%= @runners[position].experience %>/1000</td>
+				</tr>
+				
+				<%# if(position+1 <= @runners.length) %>
+				<tr>
+					<td class="users-number-position"><%= position+1 %></td>
+					<td></td>
+					<td><img src='/user.png' class='img-circle img-ladder'></td>
+					<td><%= @runners[position+1].name %></td>
+					<td><%= @runners[position+1].level %></td>
+					<td><%= @runners[position+1].experience %>/1000</td>
+				</tr>
+				<%# if position+2 < @runners.length %>
+				<tr>
+					<td class="users-number-position"><%= position+2 %></td>
+					<td></td>
+					<td><img src='/user.png' class='img-circle img-ladder'></td>
+					<td><%= @runners[position+2].name %></td>
+					<td><%= @runners[position+2].level %></td>
+					<td><%= @runners[position+2].experience %>/1000</td>
+				</tr>
+				<%# end %>
+			</tbody>
 	</table>
 	<%# @runners[position].name %>
 	</div>
