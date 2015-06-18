@@ -42,7 +42,7 @@
 }
 
 .users-number-position{
-	text-shadow: 1px 1px 3px rgba(0, 0, 0, 1);
+	text-shadow: 1px 1px 3px rgba(55, 55, 55, 1);
 	font-size: 3.25rem;
 }
 
@@ -79,4 +79,16 @@
 	height: 35px;
 	 	/* Centrar verticalmente */
  	margin-top: 7%;
+}
+
+.v-center-name{
+	margin-top: 6%;
+}
+
+.v-center-level{
+	margin-top: 21%;
+}
+
+.v-center-experience{
+	margin-top: 10%;
 }
