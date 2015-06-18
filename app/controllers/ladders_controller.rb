@@ -4,6 +4,9 @@ class LaddersController < ApplicationController
 	def index
 		@toprunner = User.order(level: :desc, experience: :desc).first
 		@runners = User.all.order(level: :desc, experience: :desc)
+
+		@topLeague = Ladder.takeLeague(@toprunner)
+		@rankLeagues = Ladder.takeLeagues(@runners)
 	end
 
 	private
