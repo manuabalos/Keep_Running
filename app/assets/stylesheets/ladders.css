@@ -74,3 +74,9 @@
 .table-ladder{
 	text-align: center;
 }
+
+.center-align{
+	 /* Centrar verticalmente */
+ 	vertical-align: center;
+
+}

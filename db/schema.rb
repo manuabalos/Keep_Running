@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20150610081407) do
     t.string   "uid"
     t.string   "name"
     t.string   "provider"
+    t.text     "photo"
     t.integer  "age",        default: 27
     t.text     "location",   default: "Madrid"
     t.integer  "level",      default: 1

@@ -10,7 +10,8 @@ class User < ActiveRecord::Base
         create(
             provider: auth['provider'],
             uid: auth['uid'],
-            name: auth['info']['name']
+            name: auth['info']['name'],
+            photo: auth['info']['image']
             )
     end
 end
