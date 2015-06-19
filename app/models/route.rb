@@ -20,14 +20,11 @@ class Route < ActiveRecord::Base
 			current_user.level += 1
 		end
 
-		
-
 		current_user.save
 	end
 
 
 	def self.addHistory(route, current_user)
-
 		@history = History.new
 		@history.user_id = current_user.id
 		@history.route_id = route.id

@@ -6,8 +6,8 @@ class LaddersController < ApplicationController
 			@toprunner = User.order(level: :desc, experience: :desc).first
 			@runners = User.all.order(level: :desc, experience: :desc)
 
-			@topLeague = Ladder.getLeagues(1)
-			@rankLeagues = Ladder.getLeagues("all")
+			@topLeague = Ladder.getLeagues(1, @toprunner)
+			@rankLeagues = Ladder.getLeagues("all", @runners)
 		else
 			redirect_to root_path
 		end

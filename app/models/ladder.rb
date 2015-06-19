@@ -1,22 +1,17 @@
 class Ladder < ActiveRecord::Base
 
-	def self.getLeagues(numRunners)
-
+	def self.getLeagues(numRunners, infoRunners)
 		@@leagues = []
 
 		if numRunners == 1
-			runner = User.order(level: :desc, experience: :desc).first
-				imgLeagues(runner)
-
+			imgLeagues(infoRunners)
 		elsif numRunners == "all" 
-			runners = User.all.order(level: :desc, experience: :desc)
-			runners.each do |runner|
+			infoRunners.each do |runner|
 				imgLeagues(runner)
 			end	
 		end
 
 		return @@leagues
-
 	end
 
 	def self.imgLeagues(runner)

@@ -66,19 +66,7 @@
 				<div class="col-md-10">
 					<div class="profile-name"><%= current_user.name %></div>
 					<div class="profile-stars" id="user-level">LV.<%= current_user.level %>
-						<% if current_user.experience >= 0 && current_user.experience < 200 %>
-							<img src="/images/stars/0.png" class="img-stars">
-						<% elsif current_user.experience >= 200 && current_user.experience < 400 %>
-							<img src="/images/stars/1.png" class="img-stars">
-						<% elsif current_user.experience >= 400 && current_user.experience < 500 %>
-							<img src="/images/stars/2.png" class="img-stars">
-						<% elsif current_user.experience >= 500 && current_user.experience < 700 %>
-							<img src="/images/stars/3.png" class="img-stars">
-						<% elsif current_user.experience >= 700 && current_user.experience < 900 %>
-							<img src="/images/stars/4.png" class="img-stars">
-						<% elsif current_user.experience >= 900 %>
-							<img src="/images/stars/5.png" class="img-stars">
-						<% end %>
+						<img src="/images/stars/<%= getStarsImg(current_user) %>.png" class="img-stars">
 					</div>
 					<div class="profile-experience" id="user-experience">Experience: <%= current_user.experience %> / 1000</div>
 				</div>
@@ -86,8 +74,6 @@
 				<div class="col-md-2">
 					<%= image_tag(@auth['info']['image'], class: 'img-circle profile-img') %>
 				</div>
-            	<%# current_user.name %>
-            	<%# link_to "Sign Out", 'sign_out', method: :delete %>
             <% else %>
             	<%= link_to 'auth/github' do %><img class="icon-logo" src="icons/icon-github.png"><% end %> 
             	<%= link_to 'auth/twitter' do %><img class="icon-logo" src="icons/icon-twitter.png"><% end %> 

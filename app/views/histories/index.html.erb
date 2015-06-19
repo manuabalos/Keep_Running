@@ -3,20 +3,9 @@
 	<div class="col-md-6">
 		<%= image_tag(@auth['info']['image'], class: 'img-circle profile-user-img') %>
 		<div class="profile-user-name"><samp><%= current_user.name %></samp></div>
-		<div class="profile-user-stars">LV.<%= current_user.level %>
-			<% if current_user.experience >= 0 && current_user.experience < 200 %>
-				<img src="/images/stars/0.png" class="profile-img-stars">
-			<% elsif current_user.experience >= 200 && current_user.experience < 400 %>
-				<img src="/images/stars/1.png" class="profile-img-stars">
-			<% elsif current_user.experience >= 400 && current_user.experience < 500 %>
-				<img src="/images/stars/2.png" class="profile-img-stars">
-			<% elsif current_user.experience >= 500 && current_user.experience < 700 %>
-				<img src="/images/stars/3.png" class="profile-img-stars">
-			<% elsif current_user.experience >= 700 && current_user.experience < 900 %>
-				<img src="/images/stars/4.png" class="profile-img-stars">
-			<% elsif current_user.experience >= 900 %>
-				<img src="/images/stars/5.png" class="profile-img-stars">
-			<% end %>
+		<div class="profile-user-stars">
+			LV.<%= current_user.level %>
+			<img src="/images/stars/<%= getStarsImg(current_user) %>.png" class="profile-img-stars">
 		</div>
 
 		<div class="profile-user-info">

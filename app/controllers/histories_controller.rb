@@ -11,10 +11,8 @@ class HistoriesController < ApplicationController
 		end
 	end
 
-		private
+	private
  	def set_auth
     	@auth = session[:omniauth] if session[:omniauth]
  	end
-
-
 end
