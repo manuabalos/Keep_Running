@@ -17,12 +17,41 @@ $(document).ready(function(){
         	type: 'POST',
         	dataType: 'json',
         	url: this_url + "/history",
-        	success: function(response) { $("#btn-addHistory").prop("disabled",true); console.log("Success ",response); },
+        	success: function(response) { updateUserDiv(response); },
         	error: function(response) { console.log("Error ",response); }
    		})
 		$("#btn-addHistory").addClass("btn-success");
 	});
 
+	function updateUserDiv(user){	
+		console.log(user);	
+		image_stars = getStarsImg(user.experience);
+		$("#user-level").empty();
+		$("#user-level").append("LV."+user.level+" "+image_stars);
+
+		$("#user-experience").empty();
+		$("#user-experience").append("Experience: "+user.experience+" / 1000");
+
+		$("#btn-addHistory").prop("disabled",true);
+	}
+
+	function getStarsImg(user_experience)
+	{
+		if(user_experience >= 0 && user_experience < 175)
+			imgStar="0";
+		else if(user_experience >= 175 && user_experience < 350)
+			imgStar="1";
+		else if(user_experience >= 350 && user_experience < 525)
+			imgStar="2";
+		else if(user_experience >= 525 && user_experience < 700)
+			imgStar="3";
+		else if(user_experience >= 700 && user_experience < 875)
+			imgStar="4";
+		else if(user_experience >= 875)
+			imgStar="5";
+
+		return "<img src='/images/stars/"+imgStar+".png' class='img-stars'>";
+	}
 
 	// ================================================================================
 	//                       A P I  O P E N   W E A T H E R  M A P  
@@ -38,7 +67,6 @@ $(document).ready(function(){
 
    	function takingWeather(response)
    	{
-   		console.log(response);
    		dateNow = getDateTime();
    		
 	   		for(var i=0; i<response.list.length-1; i++)
@@ -101,6 +129,17 @@ $(document).ready(function(){
 	// ---------- SHOW PATH ELEVATION ------ //
 	var myPathElevation = []
 
+	var rendererOptions = {
+	  draggable: true
+	};
+	var directionsDisplay = new google.maps.DirectionsRenderer(rendererOptions);;
+	var directionsService = new google.maps.DirectionsService();
+	var map;
+
+	var elevator;
+	var chart;
+	var polyline;
+
 	$(document).ready(function(){
 		$.ajax({
 	        type: 'GET',
@@ -134,16 +173,6 @@ $(document).ready(function(){
 		initialize();
 	}
 
-	var rendererOptions = {
-	  draggable: true
-	};
-	var directionsDisplay = new google.maps.DirectionsRenderer(rendererOptions);;
-	var directionsService = new google.maps.DirectionsService();
-	var map;
-
-	var elevator;
-	var chart;
-	var polyline;
 
 	// Load the Visualization API and the columnchart package.
 	google.load('visualization', '1', {packages: ['columnchart']});

@@ -65,7 +65,7 @@
 			<% if current_user %>
 				<div class="col-md-10">
 					<div class="profile-name"><%= current_user.name %></div>
-					<div class="profile-stars">LV.<%= current_user.level %>
+					<div class="profile-stars" id="user-level">LV.<%= current_user.level %>
 						<% if current_user.experience >= 0 && current_user.experience < 200 %>
 							<img src="/images/stars/0.png" class="img-stars">
 						<% elsif current_user.experience >= 200 && current_user.experience < 400 %>
@@ -80,7 +80,7 @@
 							<img src="/images/stars/5.png" class="img-stars">
 						<% end %>
 					</div>
-					<div class="profile-experience">Experience: <%= current_user.experience %> / 1000</div>
+					<div class="profile-experience" id="user-experience">Experience: <%= current_user.experience %> / 1000</div>
 				</div>
 				
 				<div class="col-md-2">

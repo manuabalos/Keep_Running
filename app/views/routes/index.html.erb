@@ -24,7 +24,7 @@
 			    	</thead>
 			    	<tbody>
 				<% @routes.each do |route| %>
-						<tr class="click-row-routes" data-href=<%= route_path(route) %>>
+						<tr class="click-row-routes" data-href=<%= route_path(route) %> id="row-route">
 							<td><%= route.name %></td>
 							<td><%= route.difficulty %></td>
 							<td><%= route.description %></td>

@@ -32,7 +32,7 @@ class RoutesController < ApplicationController
 		# Añadimos la ruta al historial
 		Route.addHistory(@route, current_user)
 
-		render json: 1
+		render json: current_user
 	end
 
 	private

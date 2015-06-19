@@ -19,6 +19,9 @@ class Route < ActiveRecord::Base
 			current_user.experience = 0 + expAdd
 			current_user.level += 1
 		end
+
+		
+
 		current_user.save
 	end
 
