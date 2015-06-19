@@ -2,11 +2,15 @@ class LaddersController < ApplicationController
 	before_action :set_auth
 
 	def index
-		@toprunner = User.order(level: :desc, experience: :desc).first
-		@runners = User.all.order(level: :desc, experience: :desc)
+		if current_user
+			@toprunner = User.order(level: :desc, experience: :desc).first
+			@runners = User.all.order(level: :desc, experience: :desc)
 
-		@topLeague = Ladder.takeLeague(@toprunner)
-		@rankLeagues = Ladder.takeLeagues(@runners)
+			@topLeague = Ladder.getLeagues(1)
+			@rankLeagues = Ladder.getLeagues("all")
+		else
+			redirect_to root_path
+		end
 	end
 
 	private
