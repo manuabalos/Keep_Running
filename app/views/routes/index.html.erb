@@ -18,6 +18,7 @@
 			      		<tr class="info">
 			        		<th>Name</th>
 			       			<th>Difficulty</th>
+			       			<th>Dist.(km)</th>
 			       			<th>Description</th>
 			       			<th>Location</th>
 			      		</tr>
@@ -27,6 +28,7 @@
 						<tr class="click-row-routes" data-href=<%= route_path(route) %> id="row-route">
 							<td><%= route.name %></td>
 							<td><%= route.difficulty %></td>
+							<td class="text-center"><%= route.distance %></td>
 							<td><%= route.description %></td>
 							<td><%= route.location %></td>
 						</tr>

@@ -26,7 +26,7 @@
 
 
 	Route.create( name: "Parque del Retiro", description: "Recorrido por la zona exterior del parque del Retiro.",
-				  location: "Madrid", difficulty: "Intermedia", distance: "5 Km",latitude: 40.416100, longitude: -3.684284,
+				  location: "Madrid", difficulty: "Intermedia", distance: 5,latitude: 40.416100, longitude: -3.684284,
 				  origin_lat: 40.421429, origin_lng: -3.680189,
 				  destination_lat: 40.421429, destination_lng: -3.680189)
 
@@ -39,7 +39,7 @@
 	# ================================================================================================= 
 
 	Route.create( name: "Parque del Canal", description: "Recorrido por la zona exterior del parque del Canal.",
-				  location: "Madrid", difficulty: "Principiantes", distance: "4 Km",latitude: 40.443223, longitude: -3.707657,
+				  location: "Madrid", difficulty: "Principiantes", distance: 4,latitude: 40.443223, longitude: -3.707657,
 				  origin_lat: 40.444143, origin_lng: -3.709544,
 				  destination_lat: 40.444143, destination_lng: -3.709544)
 
@@ -50,7 +50,7 @@
 	# ================================================================================================= 
 
 	Route.create( name: "Poligono Industrial", description: "Recorrido por la zona del poligono industrial y el barrio La Paz.",
-				  location: "Linares", difficulty: "Dificil", distance: "12 Km",latitude: 38.088114, longitude: -3.639998,
+				  location: "Linares", difficulty: "Dificil", distance: 12,latitude: 38.088114, longitude: -3.639998,
 				  origin_lat: 38.088114, origin_lng: -3.639998,
 				  destination_lat: 38.088114, destination_lng: -3.639998)
 
@@ -64,7 +64,7 @@
 	# =================================================================================================
 
 	Route.create( name: "Zona Verde", description: "Recorrido por la zona del paseo de Linares y la Zona Verde.",
-				  location: "Linares", difficulty: "Intermedia", distance: "10 Km",latitude: 38.098376, longitude: -3.632338,
+				  location: "Linares", difficulty: "Intermedia", distance: 10,latitude: 38.098376, longitude: -3.632338,
 				  origin_lat: 38.098376, origin_lng: -3.632338,
 				  destination_lat: 38.098570, destination_lng: -3.632649)
 
@@ -74,7 +74,7 @@
     # ================================================================================================= 
 
 	Route.create( name: "Templo de Debod", description: "Recorrido por la zona del paseo Pintor Rosales y el templo de Debod.",
-				  location: "Madrid", difficulty: "Principiantes", distance: "5 Km",latitude: 40.432529, longitude: -3.725233,
+				  location: "Madrid", difficulty: "Principiantes", distance: 5,latitude: 40.432529, longitude: -3.725233,
 				  origin_lat: 40.432529, origin_lng: -3.725233,
 				  destination_lat: 40.432529, destination_lng: -3.725233)
 
@@ -84,7 +84,7 @@
 	# ================================================================================================= 
 
 	Route.create( name: "Paseo Marítimo", description: "Recorrido por el paseo marítimo.",
-				  location: "Barcelona", difficulty: "Principiantes", distance: "7.5 Km",latitude: 41.380827, longitude: 2.183155,
+				  location: "Barcelona", difficulty: "Principiantes", distance: 7.5,latitude: 41.380827, longitude: 2.183155,
 				  origin_lat: 41.380827, origin_lng: 2.183155,
 				  destination_lat: 41.406231, destination_lng: 2.219226)
 
