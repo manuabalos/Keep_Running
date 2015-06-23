@@ -28,8 +28,8 @@ class RoutesController < ApplicationController
 	def addHistory
 		@route = Route.find(params[:id])
 
-		Route.addExperience(@route, current_user) # Sumamos la experiencia
-		Route.addHistory(@route, current_user) # Añadimos la ruta al historial
+		Route.addExperience(@route, current_user)
+		Route.addHistory(@route, current_user)
 
 		render json: current_user
 	end
