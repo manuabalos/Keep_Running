@@ -91,5 +91,15 @@
 	#Waypoint.create( route_id: 6, latitude: 41.383061, longitude: 2.188505)
 	# =================================================================================================
 
+	Route.create( name: "Parque Juan C.", description: "Recorrido por el parque Juan Carlos.",
+				  location: "Pinto", difficulty: "Principiantes", distance: 2.5,latitude: 40.235224, longitude: -3.693424,
+				  origin_lat: 40.236358, origin_lng: -3.697769,
+				  destination_lat: 40.236358, destination_lng: -3.697769)
 
+	Waypoint.create( route_id: 7, latitude: 40.232949, longitude: -3.696460)
+	Waypoint.create( route_id: 7, latitude: 40.233094, longitude: -3.690565)
+	Waypoint.create( route_id: 7, latitude: 40.239298, longitude: -3.690151)
+	Waypoint.create( route_id: 7, latitude: 40.238194, longitude: -3.694397)
+
+	# ================================================================================================= 
 

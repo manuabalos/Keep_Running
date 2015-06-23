@@ -38,7 +38,7 @@
 	</div>
 	<div class="col-md-6">
 		<h2 class="text-center"><small>Lastest 10 routes completed</small></h2>
-		<table class="table table text-center table-lastest-routes">
+		<table class="table table-hover text-center table-lastest-routes">
 			<thead>
 	    		<tr>
 	      		<th class="text-center">Date</th>
@@ -49,7 +49,7 @@
 			</thead>
 		<% @histories.each do |history| %>
 			<% count= 0 %>
-			<tr class="click-row-routes" data-href=<%= route_path(history) %>>
+			<tr class="click-row-routes" data-href=<%= route_path(history.route) %>>
 				<!--<td><%# @history_date[count].created_at %></td>-->
 				<td><%= history.date %></td>
 				<td><%= history.route.name %></td>
