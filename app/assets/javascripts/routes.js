@@ -222,26 +222,20 @@ $(document).ready(function(){
 
 	function calcRoute() {
 		var request = {
-			origin: new google.maps.LatLng(origin_lat, origin_lng), // ORIGEN
-			destination: new google.maps.LatLng(destination_lat, destination_lng), // DESTINO
-
+			origin: new google.maps.LatLng(origin_lat, origin_lng),
+			destination: new google.maps.LatLng(destination_lat, destination_lng),
 			waypoints:[],
-
 			travelMode: google.maps.TravelMode.WALKING
 		};
 
-		/* Preparamos el array de los puntos del recorrido */
 		takingPaths=[];
 
-			for(var i=0;i<wp_latitude.length;i++)
-			{
-				takingPaths.push({location: new google.maps.LatLng(wp_latitude[i], wp_longitude[i])});
-			}
+		for(var i=0;i<wp_latitude.length;i++){
+			takingPaths.push({location: new google.maps.LatLng(wp_latitude[i], wp_longitude[i])});
+		}
 
 		request.waypoints = takingPaths;
 
-
-			
 		directionsService.route(request, function(response, status) {
 		    if (status == google.maps.DirectionsStatus.OK) {
 		      	directionsDisplay.setDirections(response);
