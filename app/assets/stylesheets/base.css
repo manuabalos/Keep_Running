@@ -20,13 +20,7 @@
 .cf:after {
 	clear: both;
 }
-body {
-	background: #cfd8dc;
-	color: #37474f;
-	font-weight: 400;
-	font-size: 1em;
-	font-family: 'Raleway', Arial, sans-serif;
-}
+
 .support {
 	font-weight: bold;
 	padding: 2em 0 0 0;
@@ -71,7 +65,7 @@ a:focus {
 }
 .box {
 	/* padding: 4.5em 0; */
-	margin-top: -1.8%;
+	margin-top: -1.65%;
 	display: -webkit-flex;
 	display: -ms-flexbox;
 	display: flex;
