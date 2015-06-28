@@ -34,11 +34,19 @@
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	      <ul class="nav navbar-nav box bg-1">
 			<% if current_user %>
-			<li><button class="button button--itzel button--text-thick"><i class="button__icon glyphicon glyphicon-user"></i><span>PROFILE</span></button></li>
-			<li><button class="button button--itzel button--text-thick"><i class="button__icon glyphicon glyphicon-road"></i><span>ROUTES</span></button></li>
-			<li><button class="button button--itzel button--text-thick"><i class="button__icon glyphicon glyphicon-list"></i><span>LADDER</span></button></li>
-			<li><button class="button button--itzel button--text-thick"><i class="button__icon glyphicon glyphicon-duplicate"></i><span>NEWS</span></button></li>
-			<li><button class="button button--itzel button--text-thick"><i class="button__icon glyphicon glyphicon-log-out"></i><span>EXIT</span></button></li>
+			<%= link_to histories_path do %>
+				<li><button class="button button--itzel button--text-thick"><i class="button__icon glyphicon glyphicon-user nav-ico"></i><span>PROFILE</span></button></li>
+			<% end %>
+			<%= link_to routes_path do %>
+				<li><button class="button button--itzel button--text-thick"><i class="button__icon glyphicon glyphicon-road nav-ico"></i><span>ROUTES</span></button></li>
+			<% end %>
+			<%= link_to ladders_path do %>
+				<li><button class="button button--itzel button--text-thick"><i class="button__icon glyphicon glyphicon-list nav-ico"></i><span>LADDER</span></button></li>
+			<% end %>
+				<li><button class="button button--itzel button--text-thick"><i class="button__icon glyphicon glyphicon-duplicate nav-ico"></i><span>NEWS</span></button></li>
+			<%= link_to 'sign_out', method: :delete do %>
+				<li><button class="button button--itzel button--text-thick"><i class="button__icon glyphicon glyphicon-log-out nav-ico"></i><span>EXIT</span></button></li>
+			<% end %>
             <% end %>
 	      </ul>
 	    </div><!-- /.navbar-collapse -->

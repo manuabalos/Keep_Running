@@ -15,7 +15,6 @@
  */
 
 nav{
-	height: 10px;
 	-webkit-box-shadow: -1px 8px 40px -2px rgba(0,0,0,0.75);
 	-moz-box-shadow: -1px 8px 40px -2px rgba(0,0,0,0.75);
 	box-shadow: -1px 8px 40px -2px rgba(0,0,0,0.75);
@@ -23,7 +22,7 @@ nav{
 }
 
 .nav-logo{
-	margin-top: -7%;
+	margin-top: -2.5%;
 }
 
 /* -------------- */
