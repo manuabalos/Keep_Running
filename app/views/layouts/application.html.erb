@@ -16,7 +16,7 @@
   	<%= csrf_meta_tags %>
 </head>
 <body>
-
+<% if current_user %>
 	<nav class="navbar navbar-default">
 	  <div class="container-fluid">
 	    <!-- Brand and toggle get grouped for better mobile display -->
@@ -33,7 +33,6 @@
 	    <!-- Collect the nav links, forms, and other content for toggling -->
 	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 	      <ul class="nav navbar-nav box bg-1">
-			<% if current_user %>
 			<%= link_to histories_path do %>
 				<li><button class="button button--itzel button--text-thick"><i class="button__icon glyphicon glyphicon-user nav-ico"></i><span>PROFILE</span></button></li>
 			<% end %>
@@ -47,11 +46,11 @@
 			<%= link_to 'sign_out', method: :delete do %>
 				<li><button class="button button--itzel button--text-thick"><i class="button__icon glyphicon glyphicon-log-out nav-ico"></i><span>EXIT</span></button></li>
 			<% end %>
-            <% end %>
 	      </ul>
 	    </div><!-- /.navbar-collapse -->
 	  </div><!-- /.container-fluid -->
 	</nav>
+<% end %>
 
 
 
