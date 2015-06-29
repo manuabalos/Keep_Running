@@ -73,7 +73,6 @@ $(document).ready(function(){
 	   		{
 	   			dateCompleteResponse = response.list[i].dt_txt
 	   			dateResponse = dateCompleteResponse.split(" ");
-
 	   			hourCompleteResponse = dateResponse[1].split(":")
 	   			hourResponse = hourCompleteResponse[0]+":"+hourCompleteResponse[1];
 	   			if(dateResponse[0] == dateNow)
@@ -84,7 +83,7 @@ $(document).ready(function(){
 	   				text_tmin = "<td>"+response.list[i].main.temp_min+"ºC</td>";
 	   				text_tmax = "<td>"+response.list[i].main.temp_max+"ºC</td>";
 	   				if(response.list[i].rain)
-	   					text_prob = "<td>"+response.list[i].rain['3h']+"mm.</td></tr>";
+	   					text_prob = "<td>"+response.list[i].rain['3h']+" mm.</td></tr>";
 	   				else
 	   					text_prob = "<td></td></tr>";
 
@@ -112,7 +111,11 @@ $(document).ready(function(){
 	    return dateTime;
 	}
 
+	// ================================================================================
+	//                      S H A R I N G  S O C I A L  N E T W O R K S
+	// ================================================================================
 
+	!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
 });
 
 // ================================================================================

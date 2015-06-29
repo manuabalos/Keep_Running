@@ -20,7 +20,7 @@ tr.click-row-routes { cursor: pointer; }
 .map-route{
 	background-color: rgba(255, 255, 255, 0.8);
 	padding-top: 1%;
-	margin-top: 8%;
+	margin-top: 1%;
 	width:850px;
 	height:500px;
 	margin-right: 7%;
@@ -60,7 +60,7 @@ tr.click-row-routes { cursor: pointer; }
 
 .info-route{
 	border: 1px solid black;
-	margin-top: 20%;
+	margin-top: 8%;
 	width: 70%;
 	text-align: center;
 	padding-top: 2%;
@@ -203,4 +203,16 @@ th{
 
 .modal-click-background{
 	background-color: #00FF37 !important;
+}
+
+.tw-button{
+    margin-top: 2%;
+    margin-left: 23%;
+}
+
+.tw-text{
+    font-size: 10px;
+    margin-left: 24%;
+    margin-top: 4%;
+    line-height: 1%;
 }
