@@ -47,6 +47,22 @@
 				<li><button class="button button--itzel button--text-thick"><i class="button__icon glyphicon glyphicon-log-out nav-ico"></i><span>EXIT</span></button></li>
 			<% end %>
 	      </ul>
+	      <ul class="nav navbar-nav navbar-right">
+	      	 <li class="dropdown row">
+          		<div class="col-md-10 nav-li-profile">
+					<div class="profile-name"><%= current_user.name %></div>
+					<div class="profile-stars" id="user-level">
+						LV.<%= current_user.level %>
+						<img src="/images/stars/<%= getStarsImg(current_user) %>.png" class="img-stars">
+					</div>
+					<div class="profile-experience" id="user-experience">Experience: <%= current_user.experience %> / 1000</div>
+				</div>
+				
+				<div class="col-md-2 nav-li-profile-img">
+					<%= image_tag(@auth['info']['image'], class: 'img-circle profile-img') %>
+				</div>
+			</li>
+	      </ul>
 	    </div><!-- /.navbar-collapse -->
 	  </div><!-- /.container-fluid -->
 	</nav>
