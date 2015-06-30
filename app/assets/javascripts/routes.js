@@ -35,8 +35,7 @@ $(document).ready(function(){
 		$("#btn-addHistory").prop("disabled",true);
 	}
 
-	function getStarsImg(user_experience)
-	{
+	function getStarsImg(user_experience){
 		if(user_experience >= 0 && user_experience < 175)
 			imgStar="0";
 		else if(user_experience >= 175 && user_experience < 350)
@@ -57,26 +56,26 @@ $(document).ready(function(){
 	//                       A P I  O P E N   W E A T H E R  M A P  
 	// ================================================================================
 
-	$.ajax({
-        type: 'GET',
-        dataType: 'json',
-        url: "http://api.openweathermap.org/data/2.5/forecast/weather?lat="+latitude+"&lon="+longitude+"&units=metric&lang=en",
-        success: function(response) { takingWeather(response) },
-        error: function(response) { console.log("Error ",response); }
-   	})
+	$(".menu-btn-map").on("click", function() {
+		$.ajax({
+	        type: 'GET',
+	        dataType: 'json',
+	        url: "http://api.openweathermap.org/data/2.5/forecast/weather?lat="+latitude+"&lon="+longitude+"&units=metric&lang=en",
+	        success: function(response) { takingWeather(response) },
+	        error: function(response) { console.log("Error ",response); }
+	   	})
+	});
 
-   	function takingWeather(response)
-   	{
+   	function takingWeather(response){
    		dateNow = getDateTime();
-   		
-	   		for(var i=0; i<response.list.length-1; i++)
-	   		{
+   		console.log(response);
+   		$(".row-weather").empty();
+	   		for(var i=0; i<response.list.length-1; i++){
 	   			dateCompleteResponse = response.list[i].dt_txt
 	   			dateResponse = dateCompleteResponse.split(" ");
 	   			hourCompleteResponse = dateResponse[1].split(":")
 	   			hourResponse = hourCompleteResponse[0]+":"+hourCompleteResponse[1];
-	   			if(dateResponse[0] == dateNow)
-	   			{
+	   			if(dateResponse[0] == dateNow){
 	   				text_hour = "<tr><td><b>"+hourResponse+"</b></td>";
 	   				text_icon = "<td><img class='img-weather' src='http://openweathermap.org/img/w/"+response.list[i].weather[0].icon+".png'></td>";
 	   				text_description = "<td>"+response.list[i].weather[0].description+"</td>";
@@ -85,16 +84,15 @@ $(document).ready(function(){
 	   				if(response.list[i].rain)
 	   					text_prob = "<td>"+response.list[i].rain['3h']+" mm.</td></tr>";
 	   				else
-	   					text_prob = "<td></td></tr>";
+	   					text_prob = "<td>0 mm.</td></tr>";
 
 	   				text_row = text_hour+text_icon+text_description+text_tmin+text_tmax+text_prob;
-	   				
 	   				$(".row-weather").append(text_row);				
 		   		}
 	   		}
    	}
 
-   	function getDateTime() {
+   	function getDateTime(){
 	    var now     = new Date(); 
 	    var year    = now.getFullYear();
 	    var month   = now.getMonth()+1; 
@@ -153,8 +151,7 @@ $(document).ready(function(){
 	   	})
 	});
 
-	function takingRoute(data)
-	{
+	function takingRoute(data){
 		route_description = data.route.description
 		latitude = data.route.latitude;
 		longitude = data.route.longitude;
@@ -180,8 +177,7 @@ $(document).ready(function(){
 	// Load the Visualization API and the columnchart package.
 	google.load('visualization', '1', {packages: ['columnchart']});
 
-	function initialize()
-	{
+	function initialize(){
 		if(latitude)
 		{
 		// Añadimos LONGITUD y LATITUD de la posicion deseada.
@@ -247,7 +243,6 @@ $(document).ready(function(){
 	}
 
 	function drawPath() {
-
 	  // Create a new chart in the elevation_chart DIV.
 	  chart = new google.visualization.ColumnChart(document.getElementById('elevation_chart'));
 
