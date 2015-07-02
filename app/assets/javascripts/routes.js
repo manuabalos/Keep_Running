@@ -61,12 +61,12 @@ $(document).ready(function(){
 	        type: 'GET',
 	        dataType: 'json',
 	        url: "http://api.openweathermap.org/data/2.5/forecast/weather?lat="+latitude+"&lon="+longitude+"&units=metric&lang=en",
-	        success: function(response) { takingWeather(response) },
+	        success: function(response) { getWeather(response) },
 	        error: function(response) { console.log("Error ",response); }
 	   	})
 	});
 
-   	function takingWeather(response){
+   	function getWeather(response){
    		dateNow = getDateTime();
    		console.log(response);
    		$(".row-weather").empty();
@@ -84,7 +84,7 @@ $(document).ready(function(){
 	   				if(response.list[i].rain)
 	   					text_prob = "<td>"+response.list[i].rain['3h']+" mm.</td></tr>";
 	   				else
-	   					text_prob = "<td>0 mm.</td></tr>";
+	   					text_prob = "<td><i>No info.<i></td></tr>";
 
 	   				text_row = text_hour+text_icon+text_description+text_tmin+text_tmax+text_prob;
 	   				$(".row-weather").append(text_row);				
